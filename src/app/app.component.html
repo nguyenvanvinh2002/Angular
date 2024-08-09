@@ -1,0 +1,65 @@
+<div class="main-navbar shadow-sm sticky-top">
+    <div class="top-navbar">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-3 col-md-3 col-sm-12 my-auto   d-md-block d-lg-block">
+                   <a href="/" class="" style="text-decoration: none;">
+                       <h1  style="color: white; font-weight: bold; text-align: center;"><span class="typing-effect">KidsEcom</span></h1>
+                    </a>
+               
+                </div>
+                <div class="col sm-12 col-md-5 col-lg-4 my-auto">
+                    <form role="search">
+                        <div class="input-group">
+                            <input c type="search" placeholder="Tìm kiếm sản phẩm " class="form-control " />
+                            <button class="btn bg-white" type="submit">
+                                <i class="fa fa-search"></i>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+                <div style="display: flex; justify-content: center;"  class="col-sm-12 col-md-4 col-lg-5 my-auto">
+                    <ul  class="nav justify-content-end">
+                        
+                        <li  class="nav-item">
+                            <a class="nav-link" href="#">
+                                <i class="fa fa-shopping-cart"></i> Giỏ Hàng
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">
+                                <i class="fa fa-heart"></i> Sản phẩm yêu thích
+                            </a>
+                        </li>
+                        <li class="nav-item" *ngIf="!isLogin">
+                            <a class="nav-link" [routerLink]="['/Login']">
+                                <i class="fa fa-user"></i> Đăng Nhập 
+                            </a>
+                        </li>
+                        <li class="nav-item dropdown"*ngIf="isLogin">
+                            <a  class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <i class="fa fa-user"></i> {{isLogin.userName}} 
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="#"><i class="fa fa-user"></i> Thông tin tài khoản</a></li>
+
+                            <li><a class="dropdown-item" href="#"><i class="fa fa-list"></i>Đơn hàng của tôi</a></li>
+
+                            <li><a class="dropdown-item" href="#"><i class="fa fa-heart"></i>Yêu thích của tôi</a></li>
+                            <li><a class="dropdown-item" href="#"><i class="fa fa-shopping-cart"></i>Giỏ hàng của tôi</a></li>
+                            <li><a class="dropdown-item" (click)="Logout()"><i class="fa fa-sign-out"></i>Đăng xuất</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+
+
+
+<div><router-outlet></router-outlet></div>
