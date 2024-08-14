@@ -1,22 +1,104 @@
+.product-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
 
-body {
-    background-color: #f0f2f5;
-    font-family: 'Arial', sans-serif;
-  
+.product-price {
+    font-size: 1.25rem; 
+    color: #e74c3c;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.product-description {
+    margin-top: 20px;
+    font-size: 0.875rem; 
+    line-height: 1.6;
+}
+
+.product-image {
     
+   width: 100%;
 }
 
-
-.flashsale {
-    width: 100%;
-    height: 300px;
-    background: rgb(253, 198, 95);
-    margin-top: 80px;
-    border-radius: 10px;
-    position: relative;
-    overflow: hidden;
+.btn-buy {
+    background-color: #e74c3c;
+    color: white;
+    font-weight: bold;
+    font-size: 0.875rem; 
 }
 
+.btn-buy:hover {
+    background-color: #c0392b;
+}
+
+.btn-cart {
+    background-color: #3498db;
+    color: white;
+    font-weight: bold;
+    border: none;
+    font-size: 0.875rem;
+}
+
+.btn-cart:hover {
+    background-color: #2980b9;
+}
+
+.btn-cart:focus, .btn-cart:active {
+    box-shadow: none;
+}
+
+.size-selector {
+    margin-top: 20px;
+}
+
+.size-selector label {
+    margin-right: 10px;
+    font-size: 0.875rem;
+}
+
+.size-selector .form-select {
+    width: auto;
+    display: inline-block;
+    font-size: 0.875rem; 
+}
+
+.promotion-info {
+    margin-top: 20px;
+}
+
+.promotion-info .promotion-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    font-size: 0.875rem; 
+}
+
+.promotion-info .promotion-item i {
+    font-size: 1rem; 
+    color: #27ae60;
+    margin-right: 10px;
+}
+
+.related-products, .customer-reviews {
+    margin-top: 40px;
+}
+
+.review {
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+    font-size: 0.875rem;
+}
+
+.review strong {
+    font-size: 1rem; 
+}
+
+.rating {
+    color: #f39c12;
+    margin-left: 5px;
+}
 
 
 
@@ -147,58 +229,6 @@ body {
 .fas{
     font-size: 10px;
 }
-
-
-
-.filter-controls {
-    background-color: #f8f9fa;
-    padding: 10px;
-    border-radius: 5px;
-}
-
-.filter-controls .btn {
-    margin: 5px;
-    flex: 1;
-    display: flex;
-    align-items: center;
-    gap: 5px;
-    font-size: 0.75rem; /* Kích thước chữ nhỏ hơn */
-    padding: 0.25rem 0.75rem; /* Padding nhỏ hơn */
-}
-
-.filter-controls .search-input {
-    max-width: 200px;
-    flex: 1;
-    padding: 0.25rem; /* Padding trong input nhỏ hơn */
-    font-size: 0.75rem; /* Kích thước chữ trong input nhỏ hơn */
-}
-
-.filter-controls .btn-outline-primary {
-    border: 1px solid #007bff;
-    color: #007bff;
-    background-color: transparent;
-}
-
-.filter-controls .btn-outline-primary:hover {
-    background-color: #007bff;
-    color: #fff;
-}
-
-.filter-controls .btn i {
-    margin-right: 5px;
-}
-/* Chỉ cần CSS cơ bản cho kích thước của nút và dropdown, nếu cần thiết */
-.dropdown-menu {
-    min-width: 100%; /* Đảm bảo dropdown menu đủ rộng */
-}
-
-.dropdown-item i {
-    margin-right: 5px;
-}
-
-
-
-
 
 
 

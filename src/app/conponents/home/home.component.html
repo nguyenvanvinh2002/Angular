@@ -1,10 +1,12 @@
 
+
+
 <div class="container">
     <div style="display: flex;justify-content: center;" class="row">
         <swiper-container navigation="true" pagination="true"loop="true"autoplay="true"autoplay-delay="3000" >
-            <swiper-slide><img style="width: 100%;" src="banner.png" alt=""></swiper-slide>
-            <swiper-slide><img style="width: 100%;" src="banner.png" alt=""></swiper-slide>
-            <swiper-slide><img style="width: 100%;" src="banner.png" alt=""></swiper-slide>
+            <swiper-slide><img style="width: 100%;" src="{{URL}}banner.png" alt=""></swiper-slide>
+            <swiper-slide><img style="width: 100%;" src="{{URL}}banner.png" alt=""></swiper-slide>
+            <swiper-slide><img style="width: 100%;" src="{{URL}}banner.png" alt=""></swiper-slide>
           </swiper-container>
          
     </div>
@@ -15,12 +17,12 @@
     
     <div >
 
-    <swiper-container  navigation="true" loop="true" >
+    <swiper-container  navigation="true"  [slidesPerView]="5">
         <swiper-slide *ngFor="let cate of lstcategories" >
             <div   style="box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);">
                 <a [routerLink]="['/Categories', cate.danhMuc]" style="text-decoration: none; color: black;">
                     <div style="display: flex; justify-content: center;">
-                        <img style="width: 100px; height: 100px;" [src]="cate.img" alt="">
+                        <img style="width: 100px; height: 100px;" src="{{URL}}{{cate.img}}" alt="">
                     </div>
                     <div style="text-align: center;">
                         <span>{{cate.danhMuc}}</span>
@@ -39,7 +41,7 @@
 
 <div style="width: 100%; height: 500px; background: rgb(253, 198, 95); margin-top: 80px; border-radius: 10px;" class="flashsale">
   <div style="display: flex; align-items: center; padding: 10px;">
-      <img style="width: 150px; height: 50px;" src="sale2.png" alt="Sale Banner">
+      <img style="width: 150px; height: 50px;" src="{{URL}}sale2.png" alt="Sale Banner">
       <div style="width: 30px; height: 30px; display: flex; align-items: center; justify-content: center; background: blue; margin: 10px; border-radius: 10px;" class="countdown">
           <span style="color: white;" id="countdown-hour"></span>
       </div>
@@ -54,18 +56,18 @@
   </div>
   <div >
 
-      <swiper-container navigation="true" loop="true">
+      <swiper-container  loop="true" [slidesPerView]="breakpoints"autoplay="true"autoplay-delay="3000"  >
         <swiper-slide *ngFor="let lst of dataproducts" >
-            <a  href="#" class="product-link">
+            <a href="/Products/{{lst.id}}" href="#" class="product-link">
                 <div class="card product-card position-relative">
-                    <img src="hinh1.png" class="card-img-top" alt="Product Image">
+                    <img src="{{URL}}{{lst.img}}" class="card-img-top" alt="Product Image">
                     <div class="badge-container">
                         <span class="badge badge-danger">Sale</span>
-                        <span class="badge badge-success">Giảm 20%</span>
+                        <span class="badge badge-success">Giảm {{lst.giamGia}} %</span>
                     </div>
                     <button class="btn btn-outline-danger btn-sm favorite-btn"><i class="fas fa-heart"></i></button>
                     <div class="card-body">
-                        <h5 class="card-title">Áo</h5>
+                        <h5 class="card-title">{{lst.tenSp}}</h5>
                         <div class="icons">
                             <i class="fas fa-star"></i>
                             <i class="fas fa-star"></i>
@@ -85,7 +87,7 @@
                             <i class="fas fa-tags"></i> Mua 2 giảm thêm 10%
                         </div>
                         <div class="d-flex justify-content-between align-items-center mt-3">
-                            <span class="price">999999 đ</span>
+                            <span class="price">{{lst.giaSp | currency:'VND':'symbol':'1.0-0'}}</span>
                             <button class="btn btn-primary">Mua Ngay</button>
                         </div>
                     </div>
@@ -100,10 +102,124 @@
     
      
     </div>
+    <div style="display: flex; align-items: center;justify-content: center ;margin-top: 20px;"><span style="font-weight: bold; font-size: 30px;">Sản Phẩm Hôm Nay</span></div>
+    
+    
+    
+    
+    <div class="row ">
+        <div class="col-12 mt-4">
+            <div class="filter-controls d-none d-md-flex flex-wrap gap-2 mb-4">
+                <button class="btn btn-outline-primary"><i class="fas fa-th"></i> Tất cả</button>
+                <button class="btn btn-outline-primary"><i class="fas fa-sort-amount-down"></i> Giá thấp đến cao</button>
+                <button class="btn btn-outline-primary"><i class="fas fa-sort-amount-up"></i> Giá cao đến thấp</button>
+                <button class="btn btn-outline-primary"><i class="fas fa-calendar-day"></i> Mới nhất</button>
+                <button class="btn btn-outline-primary"><i class="fas fa-star"></i> Đánh giá cao</button>
+                <button class="btn btn-outline-primary"><i class="fas fa-chart-line"></i> Bán chạy nhất</button>
+            </div>
+            <div class="d-md-none mb-4">
+                <div class="dropdown">
+                    <button class="btn btn-outline-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="fas fa-filter"></i> Lọc
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <li><a class="dropdown-item" href="#"><i class="fas fa-th"></i> Tất cả</a></li>
+                        <li><a class="dropdown-item" href="#"><i class="fas fa-sort-amount-down"></i> Giá thấp đến cao</a></li>
+                        <li><a class="dropdown-item" href="#"><i class="fas fa-sort-amount-up"></i> Giá cao đến thấp</a></li>
+                        <li><a class="dropdown-item" href="#"><i class="fas fa-calendar-day"></i> Mới nhất</a></li>
+                        <li><a class="dropdown-item" href="#"><i class="fas fa-star"></i> Đánh giá cao</a></li>
+                        <li><a class="dropdown-item" href="#"><i class="fas fa-chart-line"></i> Bán chạy nhất</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div *ngFor="let lst of dataproducts" class="col-6 col-sm-6 col-md-3 col-lg-3 mt-4">
+            <a  href="/Products/{{lst.id}}"  class="product-link">
+                <div class="card product-card position-relative">
+                    <img src="{{URL}}{{lst.img}}" class="card-img-top" alt="Product Image">
+                    <div class="badge-container">
+                        <span class="badge badge-danger">Sale</span>
+                        <span class="badge badge-success">Giảm {{lst.giamGia}} %</span>
+                    </div>
+                    <button class="btn btn-outline-danger btn-sm favorite-btn"><i class="fas fa-heart"></i></button>
+                    <div class="card-body">
+                        <h5 class="card-title">{{lst.tenSp}}</h5>
+                        <div class="icons">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                            <span class="rating">(4.5)</span>
+                        </div>
+                        
+                        <div class="availability">
+                            <i class="fas fa-check-circle"></i> Còn hàng
+                        </div>
+                        <div class="shipping">
+                            <i class="fas fa-shipping-fast"></i> Miễn phí vận chuyển
+                        </div>
+                        <div class="discount-info mt-1">
+                            <i class="fas fa-tags"></i> Mua 2 giảm thêm 10%
+                        </div>
+                        <div class="d-flex justify-content-between align-items-center mt-3">
+                            <span class="price">{{lst.giaSp | currency:'VND':'symbol':'1.0-0'}}</span>
+                            <button class="btn btn-primary">Mua Ngay</button>
+                        </div>
+                    </div>
+                </div>
+            </a>
+        </div>
 </div>
 
 
 
+
+<div style="margin-top: 20px;">
+    <swiper-container   loop="true"autoplay="true"autoplay-delay="4000"[slidesPerView]="bannerpoint" >
+        <swiper-slide style="margin: 10px;"><img style="border-radius: 10px;"  src="{{URL}}banner1.png" alt=""></swiper-slide>
+        <swiper-slide style="margin: 10px;"><img style="border-radius: 10px;"  src="{{URL}}banner4.png" alt=""></swiper-slide>
+        <swiper-slide style="margin: 10px;"><img style="border-radius: 10px;"  src="{{URL}}banner2.png" alt=""></swiper-slide>
+        <swiper-slide style="margin: 10px;"><img style="border-radius: 10px;"  src="{{URL}}banner3.png" alt=""></swiper-slide>
+        <swiper-slide style="margin: 10px;"><img style="border-radius: 10px;"  src="{{URL}}banner4.png" alt=""></swiper-slide>
+
+      </swiper-container>
+</div>
+
+
+
+
+</div>
+
+
+<script>
+    function startCountdown(duration) {
+        const hourElement = document.getElementById('countdown-hour');
+        const minuteElement = document.getElementById('countdown-minute');
+        const secondElement = document.getElementById('countdown-second');
+        const targetTime = new Date().getTime() + duration * 1000;
+        function updateCountdown() {
+            const now = new Date().getTime();
+            const distance = targetTime - now;
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+  
+            hourElement.innerHTML = `${hours}`;
+            minuteElement.innerHTML = `${minutes} `;
+            secondElement.innerHTML = `${seconds}`;
+  
+            if (distance < 0) {
+                clearInterval(interval);
+                hourElement.innerHTML = "00h";
+                minuteElement.innerHTML = "00m";
+                secondElement.innerHTML = "00s";
+            }
+        }
+        const interval = setInterval(updateCountdown, 1000);
+    }
+    startCountdown(14400);
+  </script>
 
 
 

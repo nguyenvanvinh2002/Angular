@@ -23,12 +23,13 @@
   
   <app-root></app-root>
 
-  
 
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-element-bundle.min.js"></script>
-
-
+  <script src="index.js"></script>
+<script>
+  
+</script>
 </body>
 
 </html>
@@ -40,32 +41,3 @@
 
 
 
-
-<script>
-  function startCountdown(duration) {
-      const hourElement = document.getElementById('countdown-hour');
-      const minuteElement = document.getElementById('countdown-minute');
-      const secondElement = document.getElementById('countdown-second');
-      const targetTime = new Date().getTime() + duration * 1000;
-      function updateCountdown() {
-          const now = new Date().getTime();
-          const distance = targetTime - now;
-          const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-          const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-          const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-          hourElement.innerHTML = `${hours}`;
-          minuteElement.innerHTML = `${minutes} `;
-          secondElement.innerHTML = `${seconds}`;
-
-          if (distance < 0) {
-              clearInterval(interval);
-              hourElement.innerHTML = "00h";
-              minuteElement.innerHTML = "00m";
-              secondElement.innerHTML = "00s";
-          }
-      }
-      const interval = setInterval(updateCountdown, 1000);
-  }
-  startCountdown(14400);
-</script>

@@ -20,15 +20,21 @@
                 </div>
                 <div style="display: flex; justify-content: center;"  class="col-sm-12 col-md-4 col-lg-5 my-auto">
                     <ul  class="nav justify-content-end">
-                        
-                        <li  class="nav-item">
-                            <a class="nav-link" href="#">
+                        <li *ngIf="!isLogin" class="nav-item">
+                            <a (click)="carts()"  class="nav-link" href="#">
                                 <i class="fa fa-shopping-cart"></i> Giỏ Hàng
                             </a>
                         </li>
+                        <li *ngIf="isLogin" class="nav-item">
+                            <a  href="/Carts/{{isLogin.userName}}" class="nav-link" href="#">
+                                <i class="fa fa-shopping-cart"></i> Giỏ Hàng
+                            </a>
+                        </li>
+                        
                         <li class="nav-item">
                             <a class="nav-link" href="#">
                                 <i class="fa fa-heart"></i> Sản phẩm yêu thích
+                               
                             </a>
                         </li>
                         <li class="nav-item" *ngIf="!isLogin">
@@ -46,8 +52,8 @@
                             <li><a class="dropdown-item" href="#"><i class="fa fa-list"></i>Đơn hàng của tôi</a></li>
 
                             <li><a class="dropdown-item" href="#"><i class="fa fa-heart"></i>Yêu thích của tôi</a></li>
-                            <li><a class="dropdown-item" href="#"><i class="fa fa-shopping-cart"></i>Giỏ hàng của tôi</a></li>
-                            <li><a class="dropdown-item" (click)="Logout()"><i class="fa fa-sign-out"></i>Đăng xuất</a></li>
+                            <li style="color: white;"><a  class="dropdown-item" href="/Carts/{{isLogin.userName}}"><i class="fa fa-shopping-cart"></i>Giỏ hàng của tôi</a></li>
+                            <li><a class="dropdown-item" href="#" (click)="Logout()"><i class="fa fa-sign-out"></i>Đăng xuất</a></li>
                             </ul>
                         </li>
                     </ul>
@@ -62,4 +68,44 @@
 
 
 
-<div><router-outlet></router-outlet></div>
+<div>
+    <router-outlet></router-outlet>
+</div>
+
+
+
+
+<footer>
+    <div class="footer-container">
+        <div class="footer-section">
+            <h4>Giới Thiệu</h4>
+            <p>Chúng tôi cung cấp các sản phẩm chất lượng cao và dịch vụ khách hàng tốt nhất.</p>
+        </div>
+        <div class="footer-section">
+            <h4>Liên Hệ</h4>
+            <ul>
+                <li><i class="fas fa-envelope"></i> <a href="#">vinh2002minhkhaigmail.com</a></li>
+                <li><i class="fas fa-phone"></i> <a href="#">033-429-3670</a></li>
+                <li><i class="fas fa-map-marker-alt"></i> <a href="#">Cấn Hạ-Cấn Hữu-Quốc Oai-Hà Nội</a></li>
+            </ul>
+        </div>
+        <div class="footer-section">
+            <h4>Theo Dõi Chúng Tôi</h4>
+            <div class="social-icons">
+                <a href="#" class="social-icon facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" class="social-icon twitter"><i class="fab fa-twitter"></i></a>
+                <a href="#" class="social-icon instagram"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+        <div class="footer-section">
+            <h4>Đăng Ký Nhận Tin</h4>
+       <div style="display: flex; max-height: 30px;">
+                <input type="email" placeholder="Nhập email của bạn" required>
+                <button style="width: 80px;" class="btn btn-primary" type="submit"><i style="display: flex;justify-content: center;" class="fas fa-paper-plane"></i></button>
+            </div>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>&copy; 2024 Công Ty TNHH 1 TV. Bảo lưu quyền sáng tạo.</p>
+    </div>
+</footer>

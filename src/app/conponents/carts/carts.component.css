@@ -1,0 +1,27 @@
+.table-container {
+
+    overflow-y: auto;
+}
+.product-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 15px 0;
+    background-color: #f9f9f9;
+}
+
+.product-table th, .product-table td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: left;
+}
+
+.product-table th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+}
+
+.product-table img.product-img {
+    max-width: 100px;
+    height: auto;
+    display: block;
+}

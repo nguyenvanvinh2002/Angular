@@ -11,23 +11,22 @@ import { query } from 'express';
 export class ListCategoriesComponent implements OnInit {
   danhMuc:any;
   danhMucs:any;
+  lstproducts:any;
+  URL:string='https://localhost:7025/img/'
 constructor(private activedRouter: ActivatedRoute,private app:AppService){}
   ngOnInit(): void {
     
     this.activedRouter.paramMap.subscribe(query=>{
     this.danhMuc=query.get("danhMuc");
-    this.app.lstcategoriesbydanhmuc(this.danhMuc).subscribe(res=>{
+    this.app.lstproductsbydanhmuc(this.danhMuc).subscribe(res=>{
      this.danhMuc = res
-    
-      
-      
     })
    })
    this.app.categoriesbydanhmuc(this.danhMuc).subscribe(res=>{
     this.danhMucs = res
   })
     
- 
+  
   }
  
 }

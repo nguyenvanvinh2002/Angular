@@ -1,6 +1,5 @@
 import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { BrowserModule, provideClientHydration } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './conponents/login/login.component';
@@ -9,13 +8,11 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ListCategoriesComponent } from './conponents/list-categories/list-categories.component';
 import { register } from 'swiper/element/bundle';
+import { ProductsComponent } from './conponents/products/products.component';
+import { CartsComponent } from './conponents/carts/carts.component';
+
 
 register();
-
-
-
-
-
 
 
 @NgModule({
@@ -24,6 +21,11 @@ register();
     LoginComponent,
     HomeComponent,
     ListCategoriesComponent,
+    ProductsComponent,
+    CartsComponent,
+
+
+   
 
   ],
   imports: [
@@ -32,7 +34,6 @@ register();
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
-
     
   ],
   providers: [
