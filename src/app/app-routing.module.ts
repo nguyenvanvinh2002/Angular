@@ -7,6 +7,7 @@ import { HomeComponent } from './conponents/home/home.component';
 import { ListCategoriesComponent } from './conponents/list-categories/list-categories.component';
 import { ProductsComponent } from './conponents/products/products.component';
 import { CartsComponent } from './conponents/carts/carts.component';
+import { OrderComponent } from './conponents/order/order.component';
 
 
 
@@ -19,6 +20,7 @@ const routes: Routes = [
   {path:'Categories/:danhMuc',component:ListCategoriesComponent},
   {path: 'Products/:id',component:ProductsComponent},
   {path:'Carts/:userName',component:CartsComponent},
+  {path:'oders/:userName',component:OrderComponent}
 
 
   

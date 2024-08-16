@@ -51,4 +51,5 @@ export class HomeComponent implements OnInit {
     this.bannerpoint = 1;
   }
   }
+  
 }

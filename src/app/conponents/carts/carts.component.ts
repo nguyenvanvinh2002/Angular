@@ -18,8 +18,6 @@ export class CartsComponent implements OnInit {
   constructor( private app:AppService,private activeRouter:ActivatedRoute){}
   ngOnInit(): void {
     this.isLogin = this.app.CheckLogin
-
-
     this.activeRouter.paramMap.subscribe(query=>{
     this.userName= query.get('userName')
     this.app.lstCartbyUserName(this.userName).subscribe(res=>{

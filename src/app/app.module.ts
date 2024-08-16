@@ -10,6 +10,8 @@ import { ListCategoriesComponent } from './conponents/list-categories/list-categ
 import { register } from 'swiper/element/bundle';
 import { ProductsComponent } from './conponents/products/products.component';
 import { CartsComponent } from './conponents/carts/carts.component';
+import { OrderComponent } from './conponents/order/order.component';
+import { ShowtabproductsComponent } from './conponents/showtabproducts/showtabproducts.component';
 
 
 register();
@@ -23,6 +25,8 @@ register();
     ListCategoriesComponent,
     ProductsComponent,
     CartsComponent,
+    OrderComponent,
+    ShowtabproductsComponent,
 
 
    

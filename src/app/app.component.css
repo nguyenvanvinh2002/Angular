@@ -1,208 +1,117 @@
-.main-navbar{
-    border-bottom: 1px solid #ccc;
-  }
-  .main-navbar .top-navbar{
-    background-color: #2874f0;
-    padding-top: 10px;
-    padding-bottom: 10px;
-  }
-  .main-navbar .top-navbar .brand-name{
-    color: #fff;
-  }
-  .main-navbar .top-navbar .nav-link{
-    color: #fff;
-    font-size: 16px;
-    font-weight: 500;
-  }
-  .main-navbar .top-navbar .dropdown-menu{
-    padding: 0px 0px;
-    border-radius: 0px;
-  }
-  .main-navbar .top-navbar .dropdown-menu .dropdown-item{
-    padding: 8px 16px;
-    border-bottom: 1px solid #ccc;
-    font-size: 14px;
-  }
-  .main-navbar .top-navbar .dropdown-menu .dropdown-item i{
-    width: 20px;
-    text-align: center;
-    color: #2874f0;
-    font-size: 14px;
-  }
-  .main-navbar .navbar{
-    padding: 0px;
-    background-color: #ddd;
-  }
-  .main-navbar .navbar .nav-item .nav-link{
-    padding: 8px 20px;
-    color: #000;
-    font-size: 15px;
-  }
-  
-  @media only screen and (max-width: 600px) {
-    .main-navbar .top-navbar .nav-link{
-        font-size: 12px;
-        padding: 8px 10px;
-    }
-   
-  }
-  .navbar li:hover{
-    background: #ccc;
-  }
-  .btn-full-width {
-    width: 100%;
-  }
-  .typing-effect {
-    display: inline-block;
-    white-space: nowrap;
-    overflow: hidden;
-    animation: typing 4.5s steps(30, end) infinite, blink 0.75s step-end infinite;
-  }
-  
-  @keyframes typing {
-    from { width: 0; }
-    to { width: 100%; }
-  }
-  
-  @keyframes blink {
-    50% { border-color: transparent; }
-  }
-
-
-
-
-
-
-footer {
-  margin-top: 40px;
-    background-color: #2c3e50;
-    color: #ecf0f1;
-    padding: 30px 0;
-    text-align: center;
+body{
+  background: rgb(245, 247, 253);
 }
 
-.footer-container {
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
+header{
+  top: 0;
+  padding: 0;
+  background-color: #ffd400;
+}
+header nav ul {
+  text-decoration: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+header nav ul li a{
+  color: rgb(0, 0, 0);
+}
+header nav ul li{
+  list-style: none;
+}
+header nav ul li img{
+  width: 250px;
+}
+header nav ul li input{
+  width: 100%;
+}
+header nav ul li a:hover{
+  text-decoration: none;
+  color: #fff;
+}
+.cart:hover{
+  background-color: rgb(228, 228, 228);
+}
+/* ------------------ */
+footer {
+  background-color: #f8f9fa;
+  padding: 20px 0;
+  border-top: 1px solid #e0e0e0;
+}
+
+
+
+.footer-content {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px; /* Thêm khoảng cách giữa các phần tử */
+}
+
+.footer-logo, .footer-section {
+  flex: 1 1 200px; /* Các phần tử có thể co dãn, nhưng có kích thước tối thiểu là 200px */
+  min-width: 150px; /* Đảm bảo phần tử không quá nhỏ */
+}
+
+.footer-logo {
+  max-width: 250px;
+}
+
+.footer-logo img {
+  max-width: 100%;
+}
+
+.footer-logo address p {
+  margin: 5px 0;
 }
 
 .footer-section {
-    margin: 10px;
-    flex: 1;
-    min-width: 220px;
+  margin: 10px 0;
 }
 
-.footer-section h4 {
-    margin-bottom: 15px;
-    font-size: 18px;
-    color: #ecf0f1;
-    font-weight: bold;
-    border-bottom: 2px solid #3498db;
-    padding-bottom: 10px;
-}
-
-.footer-section p {
-    font-size: 14px;
+.footer-section h3 {
+  margin-bottom: 10px;
+  font-size: 1.2em;
 }
 
 .footer-section ul {
-    list-style: none;
-    padding: 0;
+  list-style: none;
+  padding: 0;
 }
 
 .footer-section ul li {
-    margin-bottom: 10px;
-    font-size: 14px;
+  margin: 5px 0;
 }
 
 .footer-section ul li a {
-    color: #ecf0f1;
-    text-decoration: none;
+  text-decoration: none;
+  color: #333;
 }
 
-.footer-section ul li a:hover {
-    color: #3498db;
-    text-decoration: underline;
+.footer-section ul.social-icons,
+.footer-section ul.payment-icons,
+.footer-section ul.shipping-icons {
+  display: flex;
+  gap: 10px; /* Thêm khoảng cách giữa các icon */
+  padding: 0;
 }
 
-.footer-section ul li i {
-    margin-right: 8px;
-    color: #3498db;
-    font-size: 16px;
+.footer-section ul.social-icons li,
+.footer-section ul.payment-icons li,
+.footer-section ul.shipping-icons li {
+  display: inline-block;
 }
 
-.social-icons {
-    display: flex;
-    justify-content: center;
-    gap: 15px;
+.footer-section ul.social-icons img,
+.footer-section ul.payment-icons img,
+.footer-section ul.shipping-icons img {
+  max-width: 30px;
 }
 
-.social-icon {
-    display: inline-block;
-    color: #ecf0f1;
-    text-decoration: none;
-    font-size: 20px;
-    padding: 8px;
-    border-radius: 50%;
-    transition: background-color 0.3s, color 0.3s;
+input[type="email"] {
+  padding: 5px;
+  margin-right: 5px;
 }
 
-.social-icon:hover {
-    background-color: #3498db;
-    color: #fff;
-}
-
-.social-icon.facebook { background-color: #3b5998; }
-.social-icon.twitter { background-color: #1da1f2; }
-.social-icon.instagram { background-color: #e1306c; }
-
-.newsletter-form {
-    display: flex;
-    gap: 10px;
-    justify-content: center;
-}
-
-.newsletter-form input {
-    padding: 8px;
-    border: 1px solid #3498db;
-    border-radius: 4px;
-    font-size: 14px;
-    outline: none;
-    width: 200px;
-}
-
-.newsletter-form input:focus {
-    border-color: #2980b9;
-}
-
-.newsletter-form button {
-    padding: 8px 16px;
-    border: none;
-    border-radius: 4px;
-    background-color: #3498db;
-    color: #fff;
-    font-size: 14px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-    display: flex;
-    align-items: center;
-    gap: 5px;
-}
-
-.newsletter-form button:hover {
-    background-color: #2980b9;
-}
-
-.footer-bottom {
-    background-color: #34495e;
-    padding: 15px 0;
-}
-
-.footer-bottom p {
-    margin: 0;
-    font-size: 12px;
+button {
+  padding: 5px 10px;
 }

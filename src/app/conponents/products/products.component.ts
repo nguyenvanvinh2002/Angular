@@ -38,6 +38,7 @@ export class ProductsComponent implements OnInit {
   })
   OdersF:FormGroup = new FormGroup({
     idSp: new FormControl(''),
+    userName:new FormControl(''),
     hoVaTen:new FormControl(''),
     email:new FormControl(''),
     soDienThoai:new FormControl(''),
@@ -93,14 +94,14 @@ export class ProductsComponent implements OnInit {
       });
       this.OdersF.patchValue({
         idSp: this.id,
-        username:this.isLogin.userName,
+        userName:this.isLogin.userName,
         hoVaTen:this.isLogin.hoVaTen,
         email:this.isLogin.email,
         soDienThoai:this.isLogin.soDienThoai,
         diaChi:this.isLogin.diaChi,
         tenSp:this.products.tenSp,
         giaSp:this.products.giaSp,
-        
+        subtotal: (this.products.giaSp ?? 0) * (this.soluongControl.value ?? 0)
       })
     });
   }
@@ -172,9 +173,12 @@ Muangay(){
 
 }
 ByCart(){
+  this.OdersF.patchValue({
+    subtotal: (this.products.giaSp ?? 0) * (this.soluongControl.value ?? 0)
+  });
  this.app.AddOders({
         idSp: this.id,
-        username:this.isLogin.userName, // không lấy đc chưa fix
+        userName:this.isLogin.userName,
         hoVaTen:this.isLogin.hoVaTen,
         email:this.isLogin.email,
         soDienThoai:this.isLogin.soDienThoai,
@@ -183,10 +187,16 @@ ByCart(){
         giaSp:this.products.giaSp,
         soLuong:this.soluongControl.value,
         size:this.sizeControl.value,
-        subtotal: (this.products.giaSp ?? 0) * (this.soluongControl.value ?? 0) // không lấy đc chưa fixc
+        subtotal: (this.products.giaSp ?? 0) * (this.soluongControl.value ?? 0) 
         
+ }).subscribe(res=>{
+  Swal.fire({
+    title: "Thành Công",
+    text: "Tiếp tục mua sắm nhé!",
+    icon: "success"
+  });
  })
-  console.log(this.OdersF.value)
+
  
 
 

@@ -63,4 +63,7 @@
    AddOders(Oders:any){
     return this.http.post<any>(`${APIURL}/Oders`,Oders)
   }
+  lstOderstbyUserName(userName:any){
+    return this.http.get(`${APIURL}/Oders/${userName}`)
+  }
   }
