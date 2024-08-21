@@ -5,36 +5,36 @@
     <table >
         <thead>
             <tr>
-                <th style="text-align: center;">STT</th>
-                <th style="text-align: center;">Tên Sản Phẩm</th>
-                <th style="text-align: center;">User Name</th>
-                <th style="text-align: center;">Họ và Tên</th>
-                <th style="text-align: center;">Size</th>
-                <th style="text-align: center;">Số Lượng</th>
-                <th style="text-align: center;">Giá Sản Phẩm</th>
-                <th style="text-align: center;">Email</th>
-                <th style="text-align: center;">Số Điện Thoại</th>
-                <th style="text-align: center;">Địa Chỉ</th>
-                <th style="text-align: center;">Subtotal</th>
-                <th style="text-align: center;">Date Time</th>
-                <th style="text-align: center;">Status</th>
+                <th class="oder-table">STT</th>
+                <th class="oder-table">Tên Sản Phẩm</th>
+               
+                <th class="oder-table">Họ và Tên</th>
+                <th class="oder-table">Size</th>
+                <th class="oder-table">Số Lượng</th>
+                <th class="oder-table">Giá Sản Phẩm</th>
+                <th class="oder-table">Email</th>
+                <th class="oder-table">Số Điện Thoại</th>
+                <th class="oder-table">Địa Chỉ</th>
+                <th class="oder-table">Subtotal</th>
+                <th class="oder-table">Date Time</th>
+                <th class="oder-table">Status</th>
             </tr>
         </thead>
         <tbody>
             <tr *ngFor="let lst of lstoders , let i = index">
-                <td style="text-align: center;">{{i + 1}}</td>
-                <td style="text-align: center;">{{lst.tenSp}}</td>
-                <td style="text-align: center;">{{lst.userName}}</td>
-                <td style="text-align: center;">{{lst.hoVaTen}}</td>
-                <td style="text-align: center;">{{lst.size}}</td>
-                <td style="text-align: center;">{{lst.soLuong}}</td>
-                <td style="text-align: center;">{{lst.giaSp| currency:'VND':'symbol':'1.0-0'}}</td>
-                <td style="text-align: center;">{{lst.email}}</td>
-                <td style="text-align: center;">+84{{lst.soDienThoai}}</td>
-                <td style="text-align: center;">{{lst.diaChi}}</td>
-                <td style="text-align: center;">{{lst.subtotal | currency:'VND':'symbol':'1.0-0'}}</td>
-                <td style="text-align: center;">{{lst.dateTime}}</td>
-                <td style="text-align: center;">{{lst.status }}</td>
+                <td class="oder-table">{{i + 1}}</td>
+                <td class="oder-table">{{lst.tenSp}}</td>
+               
+                <td class="oder-table">{{lst.hoVaTen}}</td>
+                <td class="oder-table">{{lst.size}}</td>
+                <td class="oder-table">{{lst.soLuong}}</td>
+                <td class="oder-table">{{lst.giaSp| currency:'VND':'symbol':'1.0-0'}}</td>
+                <td class="oder-table">{{lst.email}}</td>
+                <td class="oder-table">+84{{lst.soDienThoai}}</td>
+                <td class="oder-table">{{lst.diaChi}}</td>
+                <td class="oder-table">{{lst.subtotal | currency:'VND':'symbol':'1.0-0'}}</td>
+                <td class="oder-table">{{lst.dateTime}}</td>
+                <td class="oder-table">{{lst.status }}</td>
             </tr>
           
         </tbody>

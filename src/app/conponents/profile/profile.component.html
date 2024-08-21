@@ -1,80 +1,73 @@
 <div class="profile-container">
-    <h1 style="text-align: center;">THÔNG TIN CÁ NHÂN</h1>
+    <h1>THÔNG TIN CÁ NHÂN</h1>
     <div class="profile-header">
         <div class="profile-picture-container">
             <img src="{{URL}}iconavatar.png" alt="Ảnh đại diện" class="profile-picture">
-          
+
         </div>
-        
+
         <h1 class="profile-name">{{profileusername.userName}}</h1>
     </div>
     <div class="profile-details">
-
         <ul>
             <li>
-                <div style="display: flex;
-                justify-content: center;
-                align-items: center;">
-                    <label style="font-weight: bold; margin-right: 80px;" for="">Họ Và Tên: </label>
-                 <form [formGroup]="hoVaTenF" action="" method="post">
-                    <input formControlName="hovaTen"  class="hovaten" style="border: 0;background: none;" type="text" name="" id="" value="{{profileusername.hoVaTen}}" readonly>
-                 </form>
-                   
-                  
-                    <button (click)="hovaten()" class="btn-hovaten" style="display: none; color: green; margin-left: 10px;height: 30px;align-items:center ;"><i class="fa-solid fa-check"></i></button>
-                    <button class="btn-dong" style="display: none; color: red; margin-left: 10px;height: 30px;align-items:center ;"><i class="fa-solid fa-xmark"></i></button>
+                <div class="div-hovaten">
+                    <label class="lable-hovaten" for="">Họ Và Tên: </label>
+                    <form [formGroup]="hoVaTenF" action="" method="post">
+                        <input formControlName="hovaTen" class="hovaten" type="text" name="" id=""
+                            value="{{profileusername.hoVaTen}}" readonly>
+                    </form>
+                    <button (click)="hovaten()" class="btn-hovaten"><i class="fa-solid fa-check"></i></button>
+                    <button class="btn-dong"><i class="fa-solid fa-xmark"></i></button>
                 </div>
-                <button class="edit-btn edit-hovaten" >
-                    <i style="margin-right: 5px;" class="fa-solid fa-pen-to-square"></i>Chỉnh sửa
+                <button class="edit-btn edit-hovaten">
+                    <i class="fa-solid fa-pen-to-square"></i>Chỉnh sửa
                 </button>
             </li>
             <li>
                 <strong>Giới Tính: </strong>{{profileusername.gioiTinh}}
-              
+
             </li>
             <li>
-                <div style="display: flex;
-                justify-content: center;
-                align-items: center;">
-                    <label style="font-weight: bold; margin-right: 80px;" for="">Điện Thoại: </label>
-                   <form action="" [formGroup]="sodienthoaiF">
-                    <input formControlName="soDienThoai" class="sodienthoai" style="border: 0;background: none;" type="text" name="" id="" value="{{profileusername.soDienThoai}}"readonly>
-                   </form>
-                    <button (click)="sodienthoai()" class="btn-sodienthoai" style="display: none; color: green; margin-left: 10px;height: 30px;align-items:center ;"><i class="fa-solid fa-check"></i></button>
-                    <button class="btn-dong1" style="display: none; color: red; margin-left: 10px;height: 30px;align-items:center ;"><i class="fa-solid fa-xmark"></i></button>
-                </div>
-                <button class="edit-btn edit-sodienthoai" >
-                    <i style="margin-right: 5px;" class="fa-solid fa-pen-to-square"></i>Chỉnh sửa
-                </button>
-            </li>
-            <li>
-                <div style="display: flex;
-                justify-content: center;
-                align-items: center;">
-                    <label style="font-weight: bold; margin-right: 80px;" for="">Email: </label>
-                   <form action="" [formGroup]="emailF">
-                    <input formControlName="email" class="email" style="border: 0;background: none;" type="text" name="" id="" value="{{profileusername.email}}"readonly>
-                   </form>
-                    <button (click)="email()" class="btn-email" style="display: none; color: green; margin-left: 10px;height: 30px;align-items:center ;"><i class="fa-solid fa-check"></i></button>
-                    <button class="btn-dong2" style="display: none; color: red; margin-left: 10px;height: 30px;align-items:center ;"><i class="fa-solid fa-xmark"></i></button>
-                </div>
-                <button class="edit-btn edit-email" >
-                    <i style="margin-right: 5px;" class="fa-solid fa-pen-to-square"></i>Chỉnh sửa
-                </button>
-            </li>
-            <li>
-                <div style="display: flex;
-                justify-content: center;
-                align-items: center;">
-                    <label style="font-weight: bold; margin-right: 80px;" for="">Địa Chỉ: </label>
-                    <form action="" [formGroup]="diaChiF">
-                        <input formControlName="diaChi" class="diachi" style="border: 0;background: none;" type="text" name="" id="" value="{{profileusername.diaChi}}"readonly>
+                <div class="div-phone">
+                    <label class="label-phone" for="">Điện Thoại: </label>
+                    <form action="" [formGroup]="sodienthoaiF">
+                        <input formControlName="soDienThoai" class="sodienthoai" type="text" name="" id=""
+                            value="{{profileusername.soDienThoai}}" readonly>
                     </form>
-                    <button (click)="diaChi()" class="btn-diachi" style="display: none; color: green; margin-left: 10px;height: 30px;align-items:center ;"><i class="fa-solid fa-check"></i></button>
-                    <button class="btn-dong3" style="display: none; color: red; margin-left: 10px;height: 30px;align-items:center ;"><i class="fa-solid fa-xmark"></i></button>
+                    <button (click)="sodienthoai()" class="btn-sodienthoai"><i class="fa-solid fa-check"></i></button>
+                    <button class="btn-dong1"><i class="fa-solid fa-xmark"></i></button>
                 </div>
-                <button class="edit-btn edit-diachi" >
-                    <i style="margin-right: 5px;" class="fa-solid fa-pen-to-square"></i>Chỉnh sửa
+                <button class="edit-btn edit-sodienthoai">
+                    <i class="fa-solid fa-pen-to-square"></i>Chỉnh sửa
+                </button>
+            </li>
+            <li>
+                <div class="div-email">
+                    <label class="label-email" for="">Email: </label>
+                    <form action="" [formGroup]="emailF">
+                        <input formControlName="email" class="email" type="text" name="" id=""
+                            value="{{profileusername.email}}" readonly>
+                    </form>
+                    <button (click)="email()" class="btn-email"><i class="fa-solid fa-check"></i></button>
+                    <button class="btn-dong2"><i class="fa-solid fa-xmark"></i></button>
+                </div>
+                <button class="edit-btn edit-email">
+                    <i class="fa-solid fa-pen-to-square"></i>Chỉnh sửa
+                </button>
+            </li>
+            <li>
+                <div class="div-adress">
+                    <label class="label-adress" for="">Địa Chỉ: </label>
+                    <form action="" [formGroup]="diaChiF">
+                        <input formControlName="diaChi" class="diachi" type="text" name="" id=""
+                            value="{{profileusername.diaChi}}" readonly>
+                    </form>
+                    <button (click)="diaChi()" class="btn-diachi"><i class="fa-solid fa-check"></i></button>
+                    <button class="btn-dong3"><i class="fa-solid fa-xmark"></i></button>
+                </div>
+                <button class="edit-btn edit-diachi">
+                    <i class="fa-solid fa-pen-to-square"></i>Chỉnh sửa
                 </button>
             </li>
         </ul>

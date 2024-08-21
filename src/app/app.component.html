@@ -1,32 +1,26 @@
 
 <header>
     <nav>
-        <div style="padding-top: 8px; padding-bottom: 1px;" class="container">
+        <div  class="container div-ul">
             <ul>
                 <li><a href="/">
                     <img src="{{URL}}kisd.png" alt="">
                 </a></li>
-                <li><i style="margin-right: 6px;" class="fa-solid fa-location-dot"></i><a href="">Hà Nội</a></li>
-                <li style="position: relative;"><input style="border-radius: 5px;" type="text" placeholder="Bạn tìm gì...."><i style="align-items: center;position: absolute;top: auto;left: 170px;line-height: 30px;cursor: pointer;" class="fa-solid fa-magnifying-glass"></i></li>
-                <li  class="cart" style="border: 1px white solid; padding: 5px;border-radius: 5px;"><i style="margin-right: 6px;" class="fa-solid fa-cart-shopping"></i><a style="position: relative;" href="/Carts/{{isLogin.userName}}">Giỏ Hàng</a><span style="position: absolute;top: 0;background-color: red;padding:0px 7px;border-radius: 50%;color: white;">{{CartCount}}</span></li>
-                <li style="text-align: center;"><i style="margin-right: 5px;" class="fa-solid fa-file-waveform"></i><a href="/oders/{{isLogin.userName}}" >Lịch sử  đơn hàng</a><span style="position: absolute;top: 0;background-color: red;padding:0px 7px;border-radius: 50%;color: white;">{{OdersCount}}</span></li>
-                <li style="text-align: center;"><i style="margin-right: 5px;" class="fa-solid fa-bell"></i><a style="position: relative;" href="#" >Thông báo</a><span style="position: absolute;top: 0;background-color: red;padding:0px 7px;border-radius: 50%;color: white;"></span></li>
-                <li *ngIf="!isLogin" style="display: flex;"><i style="margin-right: 5px; display: flex;align-items: center;" class="fa-solid fa-user"></i><a href="/Login">Tài Khoản</a><i style="margin-left: 5px;" class="fa-solid fa-sort-down"></i></li>
-                <li *ngIf="isLogin" style="display: flex; align-items: center;">
+                <li ><i  class="fa-solid fa-location-dot"></i><a href="">Hà Nội</a></li>
+                <li class="li-search"><input type="text" placeholder="Bạn tìm gì...."><i  class="fa-solid fa-magnifying-glass"></i></li>
+                <li  class="cart" ><i  class="fa-solid fa-cart-shopping"></i><a class="link-cart" href="/Carts/{{isLogin.userName}}">Giỏ Hàng</a><span class="count-cart">{{CartCount}}</span></li>
+                <li class="li-history"><i  class="fa-solid fa-file-waveform"></i><a href="/oders/{{isLogin.userName}}" >Lịch sử  đơn hàng</a><span class="count-history">{{OdersCount}}</span></li>
+                <li class="li-notify"><i  class="fa-solid fa-bell"></i><a class="link-notify" href="#" >Thông báo</a><span class="count-notify"></span></li>
+                <li *ngIf="!isLogin" class="li-not-login"><i  class="fa-solid fa-user"></i><a href="/Login">Tài Khoản</a><i  class="fa-solid fa-sort-down"></i></li>
+                <li *ngIf="isLogin" class="li-user">
                     <a href="/profile/{{isLogin.userName}}">
                     <img 
                         src="{{URL}}{{isLogin.avatar}}" 
                         alt="Avatar" 
-                        style="width: 30px; height: 30px; border-radius: 50%; object-fit: cover; border: 2px solid #ccc; transition: transform 0.3s ease;"
-                        onmouseover="this.style.transform='scale(1.1)'" 
-                        onmouseout="this.style.transform='scale(1)'" 
+                      class="img-user-login"
                     >
                   {{isLogin.userName}}</a>
-                </li>
-         
-
-                  
-                  
+                </li> 
             </ul>
         </div>
     </nav>

@@ -1,183 +1,190 @@
-
-
-
 <div class="container mt-5">
-    <div class="row">
-        <div  class="col-lg-3 col-md-12">
-            <swiper-container class="test" >
+  <div class="row">
+    <div class="col-lg-3 col-md-12">
+      <swiper-container class="test">
 
-                <swiper-slide><img src="{{URL}}{{products.img}}" alt="Sản phẩm" class="product-image"></swiper-slide>
-                <swiper-slide><img src="{{URL}}{{products.imgphu}}" alt="Sản phẩm" class="product-image"></swiper-slide>
-                <swiper-slide><img src="{{URL}}{{products.imgphu1}}" alt="Sản phẩm" class="product-image"></swiper-slide>
-      
-            </swiper-container>
-       
+        <swiper-slide><img src="{{URL}}{{products.img}}" alt="Sản phẩm" class="product-image"></swiper-slide>
+        <swiper-slide><img src="{{URL}}{{products.imgphu}}" alt="Sản phẩm" class="product-image"></swiper-slide>
+        <swiper-slide><img src="{{URL}}{{products.imgphu1}}" alt="Sản phẩm" class="product-image"></swiper-slide>
 
+      </swiper-container>
+
+
+    </div>
+    <div class="col-lg-9 col-md-12">
+      <h1 class="product-title">{{products.tenSp}}</h1>
+      <p class="product-price">{{products.giaSp | currency:'VND':'symbol':'1.0-0'}}</p>
+
+      <div class="promotion-info mt-3">
+        <div class="promotion-item">
+          <i class="fas fa-tag"></i> Mã giảm giá: <strong>DISCOUNT10</strong>
         </div>
-        <div class="col-lg-9 col-md-12">
-            <h1 class="product-title">{{products.tenSp}}</h1>
-            <p class="product-price">{{products.giaSp | currency:'VND':'symbol':'1.0-0'}}</p>
-        
-            <div class="promotion-info mt-3">
-                <div class="promotion-item">
-                    <i class="fas fa-tag"></i> Mã giảm giá: <strong>DISCOUNT10</strong>
-                </div>
-                <div class="promotion-item">
-                    <i class="fas fa-undo"></i> Chính sách trả hàng: <strong>30 ngày</strong>
-                </div>
-                <div class="promotion-item">
-                    <i class="fas fa-truck"></i> Vận chuyển: <strong>Miễn phí vận chuyển</strong>
-                </div>
-            </div>
-        
-            <form [formGroup]="productForm" >
-                <div class="size-selector mt-3">
-                    <label for="size">Kích thước:</label>
-                    <select id="size" class="form-select" formControlName="size">
-                        <option value="S">S</option>
-                        <option value="M">M</option>
-                        <option value="L">L</option>
-                        <option value="XL">XL</option>
-                    </select>
-                </div>
-        
-                <div class="quantity-selector mt-4">
-                    <label for="quantity">Số lượng:</label>
-                    <input style="width: 400px;" formControlName="soluong" name="soluong" type="number" id="quantity" class="form-control" value="1" min="1">
-                </div>
-        
-                <div class="mt-4">
-                    <button (click)="Cart()" class="btn btn-cart btn-lg me-2 cart-btn">
-                        <i class="fas fa-shopping-cart"></i> Thêm vào giỏ hàng
-                    </button>
-                    <button (click)="Muangay()" class="btn btn-buy btn-lg" data-toggle="modal" data-target="#orderModal">
-                        <i class="fas fa-shopping-bag"></i> Mua ngay
-                    </button>
-                </div>
-            </form>
+        <div class="promotion-item">
+          <i class="fas fa-undo"></i> Chính sách trả hàng: <strong>30 ngày</strong>
         </div>
-        
+        <div class="promotion-item">
+          <i class="fas fa-truck"></i> Vận chuyển: <strong>Miễn phí vận chuyển</strong>
+        </div>
+      </div>
 
-       <!-- Popup đặt hàng (Modal) -->
-<div class="modal fade" id="orderModal" tabindex="-1" role="dialog" aria-labelledby="orderModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="orderModalLabel">Đặt Hàng</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
+      <form [formGroup]="productForm">
+        <div class="size-selector mt-3">
+          <label for="size">Kích thước:</label>
+          <select id="size" class="form-select" formControlName="size">
+            <option value="S">S</option>
+            <option value="M">M</option>
+            <option value="L">L</option>
+            <option value="XL">XL</option>
+          </select>
+        </div>
+
+        <div class="quantity-selector mt-4">
+          <label for="quantity">Số lượng:</label>
+          <input style="width: 400px;" formControlName="soluong" name="soluong" type="number" id="quantity"
+            class="form-control" value="1" min="1">
+        </div>
+
+        <div class="mt-4">
+          <button (click)="Cart()" class="btn btn-cart btn-lg me-2 cart-btn">
+            <i class="fas fa-shopping-cart"></i> Thêm vào giỏ hàng
+          </button>
+          <button (click)="Muangay()" class="btn btn-buy btn-lg" data-toggle="modal" data-target="#orderModal">
+            <i class="fas fa-shopping-bag"></i> Mua ngay
           </button>
         </div>
-        <div class="modal-body">
-          <!-- Form đặt hàng -->
-          <form [formGroup]="OdersF">
-            <div class="form-group">
-              <label for="full-name">Họ và tên</label>
-              <input type="text" class="form-control" id="full-name" formControlName="hoVaTen" value="{{profileuser.hoVaTen}}" required>
-            </div>
-            <div class="form-group">
-              <label for="email">Email</label>
-              <input type="email" class="form-control" id="email" formControlName="email" value="{{profileuser.email}}" required>
-            </div>
-            <div class="form-group">
-              <label for="phone">Số điện thoại</label>
-              <input type="tel" class="form-control" id="phone" formControlName="soDienThoai" value="{{profileuser.soDienThoai}}" required>
-            </div>
-            <div class="form-group">
-              <label for="address">Địa chỉ nhận hàng</label>
-              <input type="text" class="form-control" id="address" formControlName="diaChi" value="{{profileuser.diaChi}}" required>
-            </div>
-            <div class="form-group">
-              <label for="product-name">Tên sản phẩm</label>
-              <input type="text" class="form-control" id="product-name" formControlName="tenSp" value="{{products.tenSp}}" readonly>
-            </div>
-            <div class="form-group">
-              <label for="quantity">Số lượng</label>
-              <input type="number" class="form-control" id="quantity" formControlName="soluong" value="{{oders.soluong }}"readonly>
-            </div>
-            <div class="form-group">
-                <label for="size">Kích thước</label>
-                <input type="text" class="form-control" formControlName="size"  value="{{oders.size}}"readonly>
+      </form>
+    </div>
+
+
+    <!-- Popup đặt hàng (Modal) -->
+    <div class="modal fade" id="orderModal" tabindex="-1" role="dialog" aria-labelledby="orderModalLabel"
+      aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="orderModalLabel">Đặt Hàng</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <!-- Form đặt hàng -->
+            <form [formGroup]="OdersF">
+              <div class="form-group">
+                <label for="full-name">Họ và tên</label>
+                <input type="text" class="form-control" id="full-name" formControlName="hoVaTen"
+                  value="{{profileuser.hoVaTen}}" required>
               </div>
-            <div class="form-group">
-              <label for="price">Giá</label>
-              <input type="text" class="form-control" id="price" formControlName="giaSp" value="{{products.giaSp | currency:'VND':'symbol':'1.0-0'}}" readonly>
-            </div>
-            <div class="form-group">
-              <label for="total">Tổng tiền</label>
-              <input type="text" class="form-control" id="total" formControlName="subtotal" value="{{oders.subtotal | currency:'VND':'symbol':'1.0-0'}}" readonly>
-            </div>
-          </form>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
-          <button (click)="ByCart()" type="button" class="btn btn-primary">Xác nhận đặt hàng</button>
+              <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" class="form-control" id="email" formControlName="email"
+                  value="{{profileuser.email}}" required>
+              </div>
+              <div class="form-group">
+                <label for="phone">Số điện thoại</label>
+                <input type="tel" class="form-control" id="phone" formControlName="soDienThoai"
+                  value="{{profileuser.soDienThoai}}" required>
+              </div>
+              <div class="form-group">
+                <label for="address">Địa chỉ nhận hàng</label>
+                <input type="text" class="form-control" id="address" formControlName="diaChi"
+                  value="{{profileuser.diaChi}}" required>
+              </div>
+              <div class="form-group">
+                <label for="product-name">Tên sản phẩm</label>
+                <input type="text" class="form-control" id="product-name" formControlName="tenSp"
+                  value="{{products.tenSp}}" readonly>
+              </div>
+              <div class="form-group">
+                <label for="quantity">Số lượng</label>
+                <input type="number" class="form-control" id="quantity" formControlName="soluong"
+                  value="{{oders.soluong }}" readonly>
+              </div>
+              <div class="form-group">
+                <label for="size">Kích thước</label>
+                <input type="text" class="form-control" formControlName="size" value="{{oders.size}}" readonly>
+              </div>
+              <div class="form-group">
+                <label for="price">Giá</label>
+                <input type="text" class="form-control" id="price" formControlName="giaSp"
+                  value="{{products.giaSp | currency:'VND':'symbol':'1.0-0'}}" readonly>
+              </div>
+              <div class="form-group">
+                <label for="total">Tổng tiền</label>
+                <input type="text" class="form-control" id="total" formControlName="subtotal"
+                  value="{{oders.subtotal | currency:'VND':'symbol':'1.0-0'}}" readonly>
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
+            <button (click)="ByCart()" type="button" class="btn btn-primary">Xác nhận đặt hàng</button>
+          </div>
         </div>
       </div>
     </div>
+
+
+
+
+
   </div>
-  
 
-
-
-
+  <!-- Mô tả sản phẩm -->
+  <div class="row product-description mt-5">
+    <div class="col-12">
+      <h3 class="mb-4">Mô tả sản phẩm</h3>
+      {{products.mota}}
     </div>
+  </div>
 
-    <!-- Mô tả sản phẩm -->
-    <div class="row product-description mt-5">
-        <div class="col-12">
-            <h3 class="mb-4">Mô tả sản phẩm</h3>
-            {{products.mota}}
-        </div>
-    </div>
+  <!-- Sản phẩm tương tự -->
+  <div>
+    <div>
+      <h3>Sản phẩm tương tự</h3>
+      <swiper-container [slidesPerView]="5" loop="true" autoplay="true" autoplay-delay="2000">
+        <swiper-slide *ngFor="let lst of lstsimi">
+          <div class="product-container">
+            <div class="product-item">
+              <a class="link=products" href="/Products/{{lst.id}}">
+                <img src="{{URL}}{{lst.img}}" alt="Product Image" class="product-image">
+                <h2 class="product-title">{{lst.tenSp}}</h2>
+                <p class="product-price price">{{lst.giaSp | number:'1.0-0'}}đ</p>
+                <a class="product-button">Xem chi tiết</a>
+              </a>
 
-    <!-- Sản phẩm tương tự -->
-    <div >
-        <div >
-            <h3>Sản phẩm tương tự</h3>
-          <swiper-container [slidesPerView]="5" loop="true" autoplay="true" autoplay-delay="2000">
-            <swiper-slide *ngFor="let lst of lstsimi">
-              <div class="product-container">
-                <div  class="product-item">
-                   <a style="text-decoration: none;" href="/Products/{{lst.id}}">
-                    <img src="{{URL}}{{lst.img}}" alt="Product Image" class="product-image">
-                    <h2 class="product-title">{{lst.tenSp}}</h2>
-                    <p class="product-price price">{{lst.giaSp | number:'1.0-0'}}đ</p>
-                    <a style="text-decoration: none;"  class="product-button">Xem chi tiết</a>
-                   </a>
-                  
-                </div>
             </div>
-            </swiper-slide>
-          </swiper-container>
+          </div>
+        </swiper-slide>
+      </swiper-container>
+    </div>
+  </div>
+
+  <!-- Nhận xét khách hàng -->
+  <div class="row customer-reviews mt-5">
+    <div class="col-12">
+      <h3 class="mb-4">Nhận xét khách hàng</h3>
+      <div *ngIf="danhgiabyid && danhgiabyid.length > 0; else noData">
+        <div *ngFor="let lst of danhgiabyid" class="review">
+          <strong>{{lst.userName}}</strong>
+          <span class="rating">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+          <div class="div-comment">
+            <p>{{lst.comments}}</p>
+            <p>{{lst.datetime}}</p>
+          </div>
         </div>
-    </div>
+      </div>
+      <ng-template #noData>
+        <span class="error">Bạn hãy là người đầu tiên đánh giá cho sản phẩm này</span>
+      </ng-template>
 
-    <!-- Nhận xét khách hàng -->
-    <div class="row customer-reviews mt-5">
-        <div class="col-12">
-            <h3 class="mb-4">Nhận xét khách hàng</h3>
-            <div *ngIf="danhgiabyid && danhgiabyid.length > 0; else noData">
-                <div *ngFor="let lst of danhgiabyid" class="review">
-                  <strong>{{lst.userName}}</strong> 
-                  <span class="rating">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
-                  <div style="display: flex;justify-content: space-between;">
-                    <p>{{lst.comments}}</p>
-                    <p>{{lst.datetime}}</p>
-                </div>
-                </div>
-              </div>
-              <ng-template #noData>
-                <span style="color: brown;">Bạn hãy là người đầu tiên đánh giá cho sản phẩm này</span>
-              </ng-template>
-              
-       <div *ngIf="!isLogin" style="color: red;">Hãy đăng nhập để đánh giá sản phẩm này</div>
-       <form *ngIf="isLogin" action="" method="post" [formGroup]="Comments" (submit)="onComment()" >
-        <input formControlName="comments" style="width: 100%;height: 100px;padding-bottom: 70px;" type="text"name="comments" placeholder="Đánh giá sản phẩm">
+      <div *ngIf="!isLogin" class="checklogin">Hãy đăng nhập để đánh giá sản phẩm này</div>
+      <form *ngIf="isLogin" action="" method="post" [formGroup]="Comments" (submit)="onComment()">
+        <input formControlName="comments" class="input-comment" type="text" name="comments"
+          placeholder="Đánh giá sản phẩm">
         <button class="btn btn-primary">Gửi đánh giá</button>
-    </form>
-            
- </div>
-    </div>
-</div>
+      </form>
 
+    </div>
+  </div>
+</div>

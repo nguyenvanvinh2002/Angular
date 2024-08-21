@@ -1,37 +1,56 @@
-body{
+body {
   background: rgb(245, 247, 253);
 }
 
-header{
+header {
   top: 0;
   padding: 0;
   background-color: #ffd400;
 }
+
 header nav ul {
   text-decoration: none;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
-header nav ul li a{
+
+header nav ul li a {
   color: rgb(0, 0, 0);
 }
-header nav ul li{
+
+header nav ul li {
   list-style: none;
 }
-header nav ul li img{
+
+header nav ul li img {
   width: 250px;
 }
-header nav ul li input{
+
+header nav ul li input {
   width: 100%;
 }
-header nav ul li a:hover{
+
+header nav ul li a:hover {
   text-decoration: none;
   color: #fff;
 }
-.cart:hover{
+
+.cart {
+  border: 1px white solid;
+  padding: 5px;
+  border-radius: 5px;
+
+}
+
+.fa-cart-shopping {
+  margin-right: 6px;
+}
+
+.cart:hover {
   background-color: rgb(228, 228, 228);
 }
+
 /* ------------------ */
 footer {
   background-color: #f8f9fa;
@@ -44,12 +63,16 @@ footer {
 .footer-content {
   display: flex;
   flex-wrap: wrap;
-  gap: 20px; /* Thêm khoảng cách giữa các phần tử */
+  gap: 20px;
+  /* Thêm khoảng cách giữa các phần tử */
 }
 
-.footer-logo, .footer-section {
-  flex: 1 1 200px; /* Các phần tử có thể co dãn, nhưng có kích thước tối thiểu là 200px */
-  min-width: 150px; /* Đảm bảo phần tử không quá nhỏ */
+.footer-logo,
+.footer-section {
+  flex: 1 1 200px;
+  /* Các phần tử có thể co dãn, nhưng có kích thước tối thiểu là 200px */
+  min-width: 150px;
+  /* Đảm bảo phần tử không quá nhỏ */
 }
 
 .footer-logo {
@@ -91,7 +114,7 @@ footer {
 .footer-section ul.payment-icons,
 .footer-section ul.shipping-icons {
   display: flex;
-  gap: 10px; /* Thêm khoảng cách giữa các icon */
+  gap: 10px;
   padding: 0;
 }
 
@@ -114,4 +137,146 @@ input[type="email"] {
 
 button {
   padding: 5px 10px;
+}
+
+/* --------------- */
+.div-ul {
+  padding-top: 8px;
+  padding-bottom: 1px;
+}
+
+.fa-location-dot {
+  margin-right: 6px;
+}
+
+.li-search {
+  position: relative;
+}
+
+.li-search input {
+  border-radius: 5px;
+}
+
+.fa-magnifying-glass {
+  align-items: center;
+  position: absolute;
+  top: auto;
+  left: 170px;
+  line-height: 30px;
+  cursor: pointer;
+}
+
+.li-cart {
+  text-align: center;
+}
+
+.li-cart i {
+  margin-right: 5px;
+}
+
+.link-cart {
+  position: relative;
+}
+
+.count-cart {
+  position: absolute;
+  top: 0;
+  background-color: red;
+  padding: 0px 7px;
+  border-radius: 50%;
+  color: white;
+}
+
+.count-oder {
+  position: absolute;
+  top: 0;
+  background-color: red;
+  padding: 0px 7px;
+  border-radius: 50%;
+  color: white;
+}
+
+.count-notify {
+  position: absolute;
+  top: 0;
+  background-color: red;
+  padding: 0px 7px;
+  border-radius: 50%;
+  color: white;
+}
+
+
+
+.li-notify {
+
+  text-align: center;
+}
+
+.fa-bell {
+  margin-right: 5px;
+}
+
+.link-notify {
+  position: relative;
+}
+
+.count-notify {
+  position: absolute;
+  top: 0;
+  background-color: red;
+  padding: 0px 7px;
+  border-radius: 50%;
+  color: white;
+}
+
+.li-not-login {
+  display: flex;
+}
+
+.fa-user {
+  margin-right: 5px;
+  display: flex;
+  align-items: center;
+}
+
+.fa-sort-down {
+  margin-left: 5px;
+}
+
+.li-login {
+  display: flex;
+  align-items: center;
+}
+
+
+
+.img-user-login {
+  width: 30px !important;
+  height: 30px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #ccc;
+  transition: transform 0.3s ease;
+}
+
+.img-user:hover {
+  transform: scale(1.1);
+}
+
+
+.li-history {
+  text-align: center;
+}
+
+.fa-file-waveform {
+  margin-right: 5px;
+}
+
+.count-history {
+  position: absolute;
+  top: 0;
+  background-color: red;
+  padding: 0px 7px;
+  border-radius: 50%;
+  color: white;
 }

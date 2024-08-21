@@ -1,49 +1,52 @@
-
-
-<div  class=" mt-5">
+<div class=" mt-5">
     <div class="table-container">
-        <div style="display: flex; justify-content: center; align-items: center;">
-            <h2 style="flex: 1; text-align: center;">Giỏ Hàng Của Bạn</h2>
+        <div class="div-cart">
+            <h2>Giỏ Hàng Của Bạn</h2>
             <div>
-                
-                <button (click)="selectAll()"  style="margin-right: 10px;"  class="btn btn-primary"><i class="fa-solid fa-check-double"></i> {{textname}}</button>
-               
-                <button (click)="odercount()" style="margin-right: 10px;" class="btn btn-warning"><i class="fa-solid fa-shopping-cart"></i> {{textoder}}</button>
-                <button (click)="Remove()" class="btn " style="background-color: rgb(252, 156, 156);"><i class="fa-solid fa-trash"></i> {{textdele}}</button>
+
+                <button (click)="selectAll()" class="btn btn-primary btn-click"><i class="fa-solid fa-check-double"></i>
+                    {{textname}}</button>
+
+                <button (click)="odercount()" class="btn btn-warning btn-click"><i
+                        class="fa-solid fa-shopping-cart"></i> {{textoder}}</button>
+                <button (click)="Remove()" class="btn btn-remove "><i class="fa-solid fa-trash"></i>
+                    {{textdele}}</button>
             </div>
         </div>
-       
+
         <table class="product-table">
             <thead>
                 <tr>
-                    <th style="text-align: center;">Options</th>
-                    <th style="text-align: center;">STT</th>
-                    <th style="text-align: center;">Hình Ảnh</th>
-                    <th style="text-align: center;">Tên sản phẩm</th>
-                    <th style="text-align: center;">Danh mục</th>
-                    <th style="text-align: center;">Giá</th>
-                    <th style="text-align: center;">Kích thước</th>
-                    <th style="text-align: center;">Số lượng</th>
-                    <th style="text-align: center;">Trạng Thái</th>
-                    <th style="text-align: center;"></th>
-                    <th style="text-align: center;"></th>
+                    <th class="table-name">Options</th>
+                    <th class="table-name">STT</th>
+                    <th class="table-name">Hình Ảnh</th>
+                    <th class="table-name">Tên sản phẩm</th>
+                    <th class="table-name">Danh mục</th>
+                    <th class="table-name">Giá</th>
+                    <th class="table-name">Kích thước</th>
+                    <th class="table-name">Số lượng</th>
+                    <th class="table-name">Trạng Thái</th>
+                    <th class="table-name"></th>
+                    <th class="table-name"></th>
                 </tr>
             </thead>
             <tbody>
                 <tr *ngFor="let lst of lstcartsbyusername,let i = index">
-                    <td style="text-align: center;"><input  type="checkbox" name="" id=""[(ngModel)]="lst.selected"></td>
-                    <td style="text-align: center;">{{i + 1}}</td>
-                    <td style="text-align: center;"><img style="width: 30px;" src="{{URL}}{{lst.img}}" alt=""></td>
-                    <td style="text-align: center; max-width: 150px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">{{lst.tenSp}}</td>
-                    <td style="text-align: center;font-weight: bold;">{{lst.danhMuc}}</td>
-                    <td style="text-align: center;color: red;">{{lst.giaSp | currency:'VND':'symbol':'1.0-0'}}</td>
-                    <td style="text-align: center;">{{lst.size}}</td>
-                    <td style="text-align: center;">{{lst.soluong}}</td>
-                    <td style="text-align: center;">{{lst.status}}</td>
-                    <td style="text-align: center;"><button (click)="dele(lst.idSp,lst.size,isLogin.userName)" class="btn btn-danger"><i class="fa-solid fa-trash"></i>  Xóa</button></td>
-                    <td style="text-align: center;"><a href="/Products/{{lst.idSp}}" class="btn btn-success"><i class="fa-solid fa-circle-info"></i> Detail</a></td>
+                    <td class="table-name"><input type="checkbox" name="" id="" [(ngModel)]="lst.selected"></td>
+                    <td class="table-name">{{i + 1}}</td>
+                    <td class="table-name"><img class="img-table" src="{{URL}}{{lst.img}}" alt=""></td>
+                    <td class="table-nameproducts">{{lst.tenSp}}</td>
+                    <td class="table-categories">{{lst.danhMuc}}</td>
+                    <td class="table-price">{{lst.giaSp | currency:'VND':'symbol':'1.0-0'}}</td>
+                    <td class="table-name">{{lst.size}}</td>
+                    <td class="table-name">{{lst.soluong}}</td>
+                    <td class="table-name">{{lst.status}}</td>
+                    <td class="table-name"><button (click)="dele(lst.idSp,lst.size,isLogin.userName)"
+                            class="btn btn-danger"><i class="fa-solid fa-trash"></i> Xóa</button></td>
+                    <td class="table-name"><a href="/Products/{{lst.idSp}}" class="btn btn-success"><i
+                                class="fa-solid fa-circle-info"></i> Detail</a></td>
                 </tr>
-             
+
             </tbody>
         </table>
     </div>

@@ -46,7 +46,7 @@ export class LoginComponent {
       this.LoginF.reset()
     }
     else {
-      location.assign("http://localhost:55326");
+      location.assign("http://localhost:4200");
       this.LoginF.reset()
     }
   }

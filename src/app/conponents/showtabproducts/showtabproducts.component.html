@@ -2,11 +2,11 @@
 
 <div class="product-container">
     <div *ngFor="let lst of dataproducts" class="product-item">
-       <a style="text-decoration: none;" href="/Products/{{lst.id}}">
+       <a href="/Products/{{lst.id}}">
         <img src="{{URL}}{{lst.img}}" alt="Product Image" class="product-image">
         <h2 class="product-title">{{lst.tenSp}}</h2>
         <p class="product-price">{{lst.giaSp}}đ</p>
-        <a style="text-decoration: none;"  class="product-button">Xem chi tiết</a>
+        <a   class="product-button">Xem chi tiết</a>
        </a>
       
     </div>

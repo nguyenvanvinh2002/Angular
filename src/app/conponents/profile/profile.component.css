@@ -26,15 +26,15 @@
 }
 
 .edit-avatar-btn {
-   
-  
+
+
     color: #007bff;
     background-color: transparent;
     border: 1px solid #007bff;
     width: 100px;
     cursor: pointer;
     transition: background-color 0.3s, color 0.3s;
-    
+
 }
 
 .edit-avatar-btn:hover {
@@ -108,15 +108,75 @@
 .btn:hover {
     background-color: #0056b3;
 }
-.hovaten:focus{
+
+.hovaten:focus {
     outline: none;
 }
-.email:focus{
+
+.hovaten {
+    border: 0;
+    background: none;
+}
+
+.email:focus {
     outline: none;
 }
-.sodienthoai:focus{
+.email{
+   border: 0;background: none;
+}
+
+.sodienthoai:focus {
     outline: none;
 }
-.diachi:focus{
+
+.sodienthoai {
+    border: 0;
+    background: none;
+}
+
+.diachi:focus {
     outline: none;
 }
+.diachi{
+   border: 0;background: none;
+}
+
+h1 {
+    text-align: center;
+}
+
+.div-hovaten,.div-phone,.div-email,.div-adress {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.lable-hovaten,.label-phone,.label-adress,.label-email {
+    font-weight: bold;
+    margin-right: 80px;
+}
+
+.btn-hovaten,.btn-sodienthoai,.btn-email,.btn-diachi {
+    display: none;
+    color: green;
+    margin-left: 10px;
+    height: 30px;
+    align-items: center;
+}
+
+.btn-dong,
+.btn-dong1,.btn-dong2,.btn-dong3 {
+    display: none;
+    color: red;
+    margin-left: 10px;
+    height: 30px;
+    align-items: center;
+
+}
+
+.fa-pen-to-square {
+    margin-right: 5px;
+}
+
+

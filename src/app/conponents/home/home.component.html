@@ -1,79 +1,72 @@
 
 <!-- slider -->
-<div style="display: flex;">
-    <div style="width: 700px; margin-top: 15px;">
+<div class="div-slider">
+    <div class="wrapper-slider">
         <div>
             <swiper-container [slidesPerView]="1" pagination="true" loop="true" autoplay="true" autoplay-delay="2000">
                 <swiper-slide>
-                    <img style="width: 700px;border-radius: 10px;" src="{{URL}}banner.png" alt="">
+                    <img class="img-slider" src="{{URL}}banner.png" alt="">
                 </swiper-slide>
                 <swiper-slide>
-                    <img style="width: 700px;border-radius: 10px;" src="{{URL}}banner7.png" alt="">
+                    <img class="img-slider" src="{{URL}}banner7.png" alt="">
                 </swiper-slide>
                 <swiper-slide>
-                    <img style="width: 700px;border-radius: 10px;" src="{{URL}}banner8.png" alt="">
+                    <img class="img-slider" src="{{URL}}banner8.png" alt="">
                 </swiper-slide>
             </swiper-container>
         </div>
     </div>
 
-    <div style="display: flex; flex-direction: column; gap: 10px; margin-left: 15px;margin-top: 15px;">
-        <img style="width: 390px; border-radius: 10px;" src="{{URL}}banner9.png" alt="">
-        <img style="width: 390px; border-radius: 10px;" src="{{URL}}banner10.png" alt="">
+    <div class="slider-banner">
+        <img class="img-banner-slider" src="{{URL}}banner9.png" alt="">
+        <img class="img-banner-slider" src="{{URL}}banner10.png" alt="">
     </div>
 </div>
 <!--  -->
 <!-- banner -->
-<div><img style="width: 100%;margin-top: 10px; border-radius: 10px;" src="{{URL}}banner11.png" alt=""></div>
+<div><img class="img-banner" src="{{URL}}banner11.png" alt=""></div>
 <!--  -->
 <!-- flase sale -->
- <div style="margin-top: 10px;height: 400px;" class="container">
-    <div style="display: flex;align-items: center;">
-        <div style="font-weight: bold;font-size: 30px;">Giá</div>
-        <div><i style="font-size: 30px; margin-left: 10px;margin-right: 10px;" class="fa-solid fa-bolt"></i></div>
-        <div style="color: red;font-weight: bold;font-size: 30px;">Sốc</div>
-        <div id="countdown-hour"  style="font-size: 15px;display: flex;text-align: center;justify-content: center;align-items: center; background-color: #f54282;width: 40px;height: 40px;border-radius: 10px;border: 1px black solid;color: white;margin-left: 10px;"></div>
-        <div id="countdown-minute" style="font-size: 15px;display: flex;text-align: center;justify-content: center;align-items: center; background-color: #f54282;width: 40px;height: 40px;border-radius: 10px;border: 1px black solid;color: white;margin-left: 10px;"></div>
-        <div id="countdown-second" style="font-size: 15px;display: flex;text-align: center;justify-content: center;align-items: center; background-color: #f54282;width: 40px;height: 40px;border-radius: 10px;border: 1px black solid;color: white;margin-left: 10px;"></div>
+ <div  class="container div-flashsale">
+    <div class="div-count">
+        <div class="div-text">Giá</div>
+        <div class="div-icon"><i  class="fa-solid fa-bolt"></i></div>
+        <div class="div-text1">Sốc</div>
+        <div id="countdown-hour" ></div>
+        <div id="countdown-minute"></div>
+        <div id="countdown-second"></div>
     </div>
 
 
-    <swiper-container [slidesPerView]="5" loop="true" autoplay="true" autoplay-delay="2000" >
+    <swiper-container [slidesPerView]="5"loop="true" autoplay="true" autoplay-delay="2000"  >
         <swiper-slide *ngFor="let lst of dataproducts">
-            <div style="display: flex;justify-content: center;">
-             <a style="text-decoration: none; color: black;" href="/Products/{{lst.id}}">
-                <div  class="products-lst"style="box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); border-radius:10px;margin-bottom:10px">
-                    <div style="position: relative; display: inline-block;margin-top: 15px;">
-                        <img src="{{URL}}khungsale.png" alt="" style="display: block;width: 180px;">
-                        <img src="{{URL}}products1.png" alt="" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 50%;">
-                    </div>
-                    <div>
-                        <p style="font-weight: bold; margin: 0;" class="name-products">{{lst.tenSp}}
-                        </p>
-                        <div class="star-rating">
-                            <span style="color: gold;">★</span>
-                            <span style="color: gold;">★</span>
-                            <span style="color: gold;">★</span>
-                            <span style="color: gold;">★</span>
-                            <span style="color: gold;">★</span>
-                            (999)
-                        </div>
-                        <div style="display: flex; align-items: center;">
-                            <p style="margin: 0; font-weight: bold;">{{lst.giaSp | number:'1.0-0'}} đ</p>
-                            <div style="
-                                color: #ff69b4; 
-                              
-                                padding: 2px 8px; 
-                                margin-left: 10px; 
-                                border: 2px solid #ff69b4; 
-                                border-radius: 10px 10px 10px 0px; 
-                                font-size: 10px;
-                                position: relative;">
-                                {{lst.giamGia}}%
+            <div class="div-products">
+             <a class="link-prodcuts" href="/Products/{{lst.id}}">
+                <div  class="products-lst">
+                    <div class="div-sale">
+                        <img class="khung-sale" src="{{URL}}khungsale.png" alt="" >
+                        <img class="img-sale" src="{{URL}}{{lst.img}}" alt="" >
+                        <div>
+                            <p  class="name-products">{{lst.tenSp}}
+                            </p>
+                            <div class="star-rating">
+                                <span class="icon-start">★</span>
+                                <span class="icon-start">★</span>
+                                <span class="icon-start">★</span>
+                                <span class="icon-start">★</span>
+                                <span class="icon-start">★</span>
+                                (999)
                             </div>
+                            <div class="div-price">
+                                <p class="text-price">{{lst.giaSp | number:'1.0-0'}} đ</p>
+                                <div class="div-flash">
+                                    {{lst.giamGia}}%
+                                </div>
+                            </div>
+                            
                         </div>
-                        
                     </div>
+                   
             
                 </div>
              </a>
@@ -87,14 +80,14 @@
 <!--  -->
 
 <!-- products -->
- <h4 style="text-align: center;">GỢI Ý HÔM NAY</h4>
+ <h4 class="text-products">GỢI Ý HÔM NAY</h4>
 <div class="product-container">
     <div *ngFor="let lst of dataproducts" class="product-item">
-       <a style="text-decoration: none;" href="/Products/{{lst.id}}">
+       <a  href="/Products/{{lst.id}}">
         <img src="{{URL}}{{lst.img}}" alt="Product Image" class="product-image">
         <h2 class="product-title">{{lst.tenSp}}</h2>
         <p class="product-price price">{{lst.giaSp | number:'1.0-0'}}đ</p>
-        <a style="text-decoration: none;"  class="product-button">Xem chi tiết</a>
+        <a class="product-button">Xem chi tiết</a>
        </a>
       
     </div>
@@ -106,7 +99,7 @@
     <swiper-container [slidesPerView]="6" loop="true" autoplay="true" autoplay-delay="2000">
         <swiper-slide *ngFor="let lst of lstcategories">
     <div  class="category-list">
-        <a style="text-decoration: none;" href="/Categories/{{lst.danhMuc}}">
+        <a  href="/Categories/{{lst.danhMuc}}">
             <div  class="category-item">
                 <img  src="{{URL}}{{lst.img}}" alt="Category Image 1">
                 <p class="category-name">{{lst.danhMuc}}</p>

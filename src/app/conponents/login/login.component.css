@@ -92,7 +92,9 @@ button:hover {
 .login {
   background: #eee;
   border-radius: 10px;
-  transform: translateY(-40px);
+  display: flex; 
+  justify-content: center;
+
 }
 
 .login label {
@@ -138,4 +140,14 @@ input, select {
   border: none;
   outline: none;
   border-radius: 5px;
+}
+
+.username{
+  height: 50px;width: 100%;
+}
+.password{
+  height: 50px;width: 100%;
+}
+.btn_login,.btn_register{
+  display: flex; justify-content: center;
 }

@@ -1,18 +1,15 @@
-<div style="display: flex; justify-content: center;">
+<div class="login">
   <div class="main">
     <form method="post" [formGroup]="LoginF">
       <label aria-hidden="true">Login</label>
-      <input style="height: 50px;width: 100%;" name="userName" type="text" formControlName="userName" placeholder="UserName" required="">
-      <input style="height: 50px;width: 100%;" type="password" name="passWord" formControlName="passWord" placeholder="PassWord" required="">
-      <div style="display: flex; justify-content: center;">
+      <input class="username"  name="userName" type="text" formControlName="userName" placeholder="UserName" required="">
+      <input class="password" type="password" name="passWord" formControlName="passWord" placeholder="PassWord" required="">
+      <div class="btn_login">
         <button (click)="onLogin()" type="submit">Login</button>
-       
       </div>
-      <div style="display: flex; justify-content: center;">
+      <div class="btn_register">
         <a href="/register" class="register" >Register</a>
-       
       </div>
     </form>
-
   </div>
 </div>

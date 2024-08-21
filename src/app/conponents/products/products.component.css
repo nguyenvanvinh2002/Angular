@@ -4,7 +4,7 @@
 }
 
 .product-price {
-    font-size: 1.25rem; 
+    font-size: 1.25rem;
     color: #e74c3c;
     font-weight: bold;
     margin-top: 10px;
@@ -12,20 +12,20 @@
 
 .product-description {
     margin-top: 20px;
-    font-size: 0.875rem; 
+    font-size: 0.875rem;
     line-height: 1.6;
 }
 
 .product-image {
-    
-   width: 100%;
+
+    width: 100%;
 }
 
 .btn-buy {
     background-color: #e74c3c;
     color: white;
     font-weight: bold;
-    font-size: 0.875rem; 
+    font-size: 0.875rem;
 }
 
 .btn-buy:hover {
@@ -44,7 +44,8 @@
     background-color: #2980b9;
 }
 
-.btn-cart:focus, .btn-cart:active {
+.btn-cart:focus,
+.btn-cart:active {
     box-shadow: none;
 }
 
@@ -60,7 +61,7 @@
 .size-selector .form-select {
     width: auto;
     display: inline-block;
-    font-size: 0.875rem; 
+    font-size: 0.875rem;
 }
 
 .promotion-info {
@@ -71,16 +72,17 @@
     display: flex;
     align-items: center;
     margin-bottom: 10px;
-    font-size: 0.875rem; 
+    font-size: 0.875rem;
 }
 
 .promotion-info .promotion-item i {
-    font-size: 1rem; 
+    font-size: 1rem;
     color: #27ae60;
     margin-right: 10px;
 }
 
-.related-products, .customer-reviews {
+.related-products,
+.customer-reviews {
     margin-top: 40px;
 }
 
@@ -92,7 +94,7 @@
 }
 
 .review strong {
-    font-size: 1rem; 
+    font-size: 1rem;
 }
 
 .rating {
@@ -152,7 +154,7 @@
 
 .product-image {
     width: 100%;
- 
+
     object-fit: cover;
     border-radius: 5px;
     margin-bottom: 10px;
@@ -164,7 +166,7 @@
     margin: 10px 0;
     overflow: hidden;
     text-overflow: ellipsis;
- 
+
     line-height: 1.5em;
     max-height: 3em;
 }
@@ -184,6 +186,7 @@
     border-radius: 20px;
     cursor: pointer;
     transition: background-color 0.3s ease;
+    text-decoration: none;
 }
 
 .product-button:hover {
@@ -191,8 +194,30 @@
 }
 
 
+.link-products {
+    text-decoration: none;
+}
 
 
 
+.div-comment {
+    display: flex;
+    justify-content: space-between;
+}
 
+.error {
+    color: brown
+}
 
+.checklogin {
+    color: red;
+}
+
+.input-comment {
+    width: 100%;
+    height: 100px;
+    padding-bottom: 70px;
+}
+a:hover{
+    text-decoration: none;
+}
