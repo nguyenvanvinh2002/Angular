@@ -8,6 +8,10 @@ import { ListCategoriesComponent } from './conponents/list-categories/list-categ
 import { ProductsComponent } from './conponents/products/products.component';
 import { CartsComponent } from './conponents/carts/carts.component';
 import { OrderComponent } from './conponents/order/order.component';
+import { ShowtabproductsComponent } from './conponents/showtabproducts/showtabproducts.component';
+import { ProfileComponent } from './conponents/profile/profile.component';
+import { RegisterComponent } from './conponents/register/register.component';
+
 
 
 
@@ -20,7 +24,13 @@ const routes: Routes = [
   {path:'Categories/:danhMuc',component:ListCategoriesComponent},
   {path: 'Products/:id',component:ProductsComponent},
   {path:'Carts/:userName',component:CartsComponent},
-  {path:'oders/:userName',component:OrderComponent}
+  {path:'oders/:userName',component:OrderComponent},
+  {path:'profile/:userName',component:ProfileComponent},
+  {path:'register',component:RegisterComponent},
+
+
+  
+
 
 
   

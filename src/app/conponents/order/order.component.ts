@@ -11,6 +11,7 @@ import { query } from 'express';
 export class OrderComponent implements OnInit {
 userName:any
 lstoders:any=[]
+
   constructor ( private app:AppService , private activeRouter:ActivatedRoute){}
   ngOnInit(): void {
 
@@ -20,6 +21,8 @@ lstoders:any=[]
     this.app.lstOderstbyUserName(this.userName).subscribe(res=>{
      this.lstoders = res
     })
+
+    
   }
 
 }

@@ -1,34 +1,18 @@
-
 <div style="display: flex; justify-content: center;">
-<div class="main" >
-  <input type="checkbox" id="chk" aria-hidden="true">
-
-  <div class="signup">
-    <form method="post" [formGroup]="LoginF" (submit)="onLogin()">
-      <label for="chk" aria-hidden="true">Login</label>
-      <input style="height: 50px;width: 300px" name="userName" type="text"formControlName="userName"  placeholder="UserName" required="">
-      <input style="height: 50px;width: 300px" type="password" name="passWord" formControlName="passWord"  placeholder="PassWord" required="">
+  <div class="main">
+    <form method="post" [formGroup]="LoginF">
+      <label aria-hidden="true">Login</label>
+      <input style="height: 50px;width: 100%;" name="userName" type="text" formControlName="userName" placeholder="UserName" required="">
+      <input style="height: 50px;width: 100%;" type="password" name="passWord" formControlName="passWord" placeholder="PassWord" required="">
       <div style="display: flex; justify-content: center;">
-        <button style="height:45px;background:#573b8a;font-weight:bold;color:white;width: 100px;border-radius: 10px;">Login</button>
+        <button (click)="onLogin()" type="submit">Login</button>
+       
       </div>
-     
-    </form>
-  </div>
-
-  <div class="login" >
-    <form action="" method="post" [formGroup]="RegisterF" (submit)="onRegister()" >
-      <label for="chk" aria-hidden="true">Register</label>
-      <input style="height: 35px;width: 300px" name="userName" type="text"formControlName="userName"  placeholder="UserName" required="">
-      <input style="height: 35px;width: 300px" type="password" name="passWord" formControlName="passWord"  placeholder="PassWord" required="">
-      <input style="height: 35px;width: 300px" type="text" name="diaChi" formControlName="diaChi"   placeholder="DiaChi" required />
-      <input style="height: 35px;width: 300px" type="text" name="soDienThoai" formControlName="soDienThoai"   placeholder="SoDienThoai" required />
-      <input style="height: 35px;width: 300px" type="text" name="email" formControlName="email"   placeholder="email" required />
-      <input style="height: 35px;width: 300px" type="text" name="hoVaTen" formControlName="hoVaTen"   placeholder="hoVaTen" required />
       <div style="display: flex; justify-content: center;">
-      <button style="height:45px;background:#573b8a;font-weight:bold;color:white;width: 100px;border-radius: 10px;"  >Register</button>
-    </div>
+        <a href="/register" class="register" >Register</a>
+       
+      </div>
     </form>
-    
+
   </div>
-</div>
 </div>

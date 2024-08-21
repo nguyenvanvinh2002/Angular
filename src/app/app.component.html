@@ -8,18 +8,32 @@
                 </a></li>
                 <li><i style="margin-right: 6px;" class="fa-solid fa-location-dot"></i><a href="">Hà Nội</a></li>
                 <li style="position: relative;"><input style="border-radius: 5px;" type="text" placeholder="Bạn tìm gì...."><i style="align-items: center;position: absolute;top: auto;left: 170px;line-height: 30px;cursor: pointer;" class="fa-solid fa-magnifying-glass"></i></li>
-                <li class="cart" style="border: 1px white solid; padding: 5px;border-radius: 5px;"><i style="margin-right: 6px;" class="fa-solid fa-cart-shopping"></i><a style="position: relative;" href="/Carts/{{isLogin.userName}}">Giỏ Hàng</a><span style="position: absolute;top: 0;background-color: red;padding:0px 5px;border-radius: 50%;color: white;">0</span></li>
-                <li style="text-align: center;"><i style="margin-right: 5px;" class="fa-solid fa-file-waveform"></i><a href="#" >Lịch sử  đơn hàng</a><span style="position: absolute;top: 0;background-color: red;padding:0px 5px;border-radius: 50%;color: white;">0</span></li>
-                <li style="text-align: center;"><i style="margin-right: 5px;" class="fa-solid fa-bell"></i><a style="position: relative;" href="#" >Thông báo</a><span style="position: absolute;top: 0;background-color: red;padding:0px 5px;border-radius: 50%;color: white;">0</span></li>
+                <li  class="cart" style="border: 1px white solid; padding: 5px;border-radius: 5px;"><i style="margin-right: 6px;" class="fa-solid fa-cart-shopping"></i><a style="position: relative;" href="/Carts/{{isLogin.userName}}">Giỏ Hàng</a><span style="position: absolute;top: 0;background-color: red;padding:0px 7px;border-radius: 50%;color: white;">{{CartCount}}</span></li>
+                <li style="text-align: center;"><i style="margin-right: 5px;" class="fa-solid fa-file-waveform"></i><a href="/oders/{{isLogin.userName}}" >Lịch sử  đơn hàng</a><span style="position: absolute;top: 0;background-color: red;padding:0px 7px;border-radius: 50%;color: white;">{{OdersCount}}</span></li>
+                <li style="text-align: center;"><i style="margin-right: 5px;" class="fa-solid fa-bell"></i><a style="position: relative;" href="#" >Thông báo</a><span style="position: absolute;top: 0;background-color: red;padding:0px 7px;border-radius: 50%;color: white;"></span></li>
                 <li *ngIf="!isLogin" style="display: flex;"><i style="margin-right: 5px; display: flex;align-items: center;" class="fa-solid fa-user"></i><a href="/Login">Tài Khoản</a><i style="margin-left: 5px;" class="fa-solid fa-sort-down"></i></li>
-                <li *ngIf="isLogin" style="display: flex;"><i style="margin-right: 5px; display: flex;align-items: center;" class="fa-solid fa-user"></i><a href="#" (click)="Logout()">{{isLogin.userName}}</a><i style="margin-left: 5px;" class="fa-solid fa-sort-down"></i></li>
+                <li *ngIf="isLogin" style="display: flex; align-items: center;">
+                    <a href="/profile/{{isLogin.userName}}">
+                    <img 
+                        src="{{URL}}{{isLogin.avatar}}" 
+                        alt="Avatar" 
+                        style="width: 30px; height: 30px; border-radius: 50%; object-fit: cover; border: 2px solid #ccc; transition: transform 0.3s ease;"
+                        onmouseover="this.style.transform='scale(1.1)'" 
+                        onmouseout="this.style.transform='scale(1)'" 
+                    >
+                  {{isLogin.userName}}</a>
+                </li>
+         
+
+                  
+                  
             </ul>
         </div>
     </nav>
    
 </header>
 <div class="container">
-    <router-outlet></router-outlet>
+   <router-outlet></router-outlet>
 </div>
 <footer>
     <div class="container">

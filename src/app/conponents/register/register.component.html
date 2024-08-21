@@ -1,0 +1,29 @@
+
+<div style="display: flex; justify-content: center;">
+    <div class="main">
+      <form method="post" [formGroup]="RegisterF">
+        <label aria-hidden="true">Register</label>
+        <input style="height: 35px;width: 100%;" name="userName" type="text" formControlName="userName" placeholder="Tài Khoản" required="">
+        <input style="height: 35px;width: 100%;" type="password" name="passWord" formControlName="passWord" placeholder="Mật Khẩu" required="">
+        <input style="height: 35px;width: 100%;" type="text" name="diaChi" formControlName="diaChi" placeholder="Địa Chỉ" required />
+        <input style="height: 35px;width: 100%;" type="text" name="soDienThoai" formControlName="soDienThoai" placeholder="Số Điện Thoại" required />
+        <input style="height: 35px;width: 100%;" type="text" name="email" formControlName="email" placeholder="Email" required />
+        <input style="height: 35px;width: 100%;" type="text" name="hoVaTen" formControlName="hoVaTen" placeholder="Họ Và Tên" required />
+  
+       
+        <select style="height: 35px;width: 100%;" name="gender" formControlName="gioiTinh" required>
+          <option value="Nữ">Nữ</option>
+          <option value="Nam" >Nam</option>
+   
+        </select>
+        <div style="display: flex; justify-content: center;">
+            <button (click)="onRegister()" type="submit">Register</button>
+           
+          </div>
+        <div style="display: flex; justify-content: center;">
+          <a class="register" href="/Login">Login</a>
+        </div>
+      </form>
+    </div>
+  </div>
+  

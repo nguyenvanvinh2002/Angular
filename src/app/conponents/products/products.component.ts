@@ -5,6 +5,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import Swal from 'sweetalert2';
 import { forkJoin } from 'rxjs';
 import { sign } from 'crypto';
+import { query } from 'express';
 
 
 
@@ -31,7 +32,8 @@ export class ProductsComponent implements OnInit {
   lstproducts:any=[]
   sizeControl = new FormControl('S');
   soluongControl = new FormControl(1);
-
+  profileuser:any=[];
+ 
   productForm: FormGroup = new FormGroup({
     size: this.sizeControl,
     soluong: this.soluongControl
@@ -58,6 +60,10 @@ export class ProductsComponent implements OnInit {
   constructor(private app: AppService, private activeRouter: ActivatedRoute) { }
 
   ngOnInit(): void {
+  
+   this.profileuser = JSON.parse(sessionStorage.getItem('Login') || '{} ')
+
+
     this.activeRouter.paramMap.subscribe(query => {
       this.id = query.get("id");
       this.loadData();
@@ -74,13 +80,19 @@ export class ProductsComponent implements OnInit {
   }
 
   loadData(): void {
-    
+ 
+      
+      
+   
     forkJoin({
+     
       product: this.app.lstproductsbyId(this.id),
       similarProducts: this.app.lstproducts(),
       lstproducts:this.app.lstproducts(),
-      danhGia: this.app.lstDanhGia()
+      danhGia: this.app.lstDanhGia(),
+
     }).subscribe(responses => {
+ 
       this.products = responses.product;
       this.Similarproducts = responses.similarProducts;
       this.lstproducts = responses.lstproducts;
@@ -95,10 +107,10 @@ export class ProductsComponent implements OnInit {
       this.OdersF.patchValue({
         idSp: this.id,
         userName:this.isLogin.userName,
-        hoVaTen:this.isLogin.hoVaTen,
-        email:this.isLogin.email,
-        soDienThoai:this.isLogin.soDienThoai,
-        diaChi:this.isLogin.diaChi,
+        hoVaTen:this.profileuser.hoVaTen,
+        email:this.profileuser.email,
+        soDienThoai:this.profileuser.soDienThoai,
+        diaChi:this.profileuser.diaChi,
         tenSp:this.products.tenSp,
         giaSp:this.products.giaSp,
         subtotal: (this.products.giaSp ?? 0) * (this.soluongControl.value ?? 0)
@@ -128,10 +140,7 @@ export class ProductsComponent implements OnInit {
       this.loadData(); 
     });
   }
-  AddCart(){
-  }
-  OnOders(){
-  }
+
 
  Cart(){
    if(!this.isLogin){
@@ -154,10 +163,12 @@ export class ProductsComponent implements OnInit {
         text: "Tiếp tục mua sắm nhé!",
         icon: "success"
       });
+     
     })
    
    
  }
+
 Muangay(){
   this.app.Bycart({
     idSp:this.id,
@@ -179,10 +190,10 @@ ByCart(){
  this.app.AddOders({
         idSp: this.id,
         userName:this.isLogin.userName,
-        hoVaTen:this.isLogin.hoVaTen,
-        email:this.isLogin.email,
-        soDienThoai:this.isLogin.soDienThoai,
-        diaChi:this.isLogin.diaChi,
+        hoVaTen:this.profileuser.hoVaTen,
+        email:this.profileuser.email,
+        soDienThoai:this.profileuser.soDienThoai,
+        diaChi:this.profileuser.diaChi,
         tenSp:this.products.tenSp,
         giaSp:this.products.giaSp,
         soLuong:this.soluongControl.value,
@@ -195,6 +206,7 @@ ByCart(){
     text: "Tiếp tục mua sắm nhé!",
     icon: "success"
   });
+  
  })
 
  

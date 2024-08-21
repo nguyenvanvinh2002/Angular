@@ -48,7 +48,7 @@
                         <img src="{{URL}}products1.png" alt="" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 50%;">
                     </div>
                     <div>
-                        <p style="font-weight: bold; margin: 0;" class="name-products">Bộ yếm bé trai ngắn Dino Animo HN0524001 (9M-4Y,Kem phối tím)
+                        <p style="font-weight: bold; margin: 0;" class="name-products">{{lst.tenSp}}
                         </p>
                         <div class="star-rating">
                             <span style="color: gold;">★</span>
@@ -59,7 +59,7 @@
                             (999)
                         </div>
                         <div style="display: flex; align-items: center;">
-                            <p style="margin: 0; font-weight: bold;">530.000đ</p>
+                            <p style="margin: 0; font-weight: bold;">{{lst.giaSp | number:'1.0-0'}} đ</p>
                             <div style="
                                 color: #ff69b4; 
                               
@@ -93,7 +93,7 @@
        <a style="text-decoration: none;" href="/Products/{{lst.id}}">
         <img src="{{URL}}{{lst.img}}" alt="Product Image" class="product-image">
         <h2 class="product-title">{{lst.tenSp}}</h2>
-        <p class="product-price">{{lst.giaSp}}đ</p>
+        <p class="product-price price">{{lst.giaSp | number:'1.0-0'}}đ</p>
         <a style="text-decoration: none;"  class="product-button">Xem chi tiết</a>
        </a>
       
@@ -126,11 +126,7 @@
 
     <!-- Tab Navigation -->
     
-    <div class="tab-nav">
-        <a href="#tab1" class="tab-link active">Hot nhất</a>
-        <a href="#tab2" class="tab-link">Giá Rẻ</a>
-        <a href="#tab3" class="tab-link">Hàng Hiệu</a>
-    </div>
+
     <app-showtabproducts></app-showtabproducts>
  <!--  -->
     <!-- banner fooodter -->
@@ -192,7 +188,6 @@
         </swiper-container>
     </div>
      <!--  -->
-
 
 
 

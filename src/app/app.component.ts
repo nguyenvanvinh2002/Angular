@@ -9,24 +9,51 @@ import { query } from 'express';
   styleUrl: './app.component.css'
 })
 export class AppComponent implements OnInit {
-  lstcategories:any
+
   title = 'KidsEcom';
   isLogin:any;
-  datacart:any=[]
+  lstcart:any;
+  lstoders:any;
+  CartCount: number=0;
+  OdersCount:number =0;
   URL: string = 'https://localhost:7025/img/';
-  constructor(private app:AppService ,private activeRouter:ActivatedRoute){}
+  
+  constructor(private app:AppService ){}
+
   ngOnInit(): void {
   this.isLogin =  this.app.CheckLogin();
-  this.app.lstcategories().subscribe(res=>{
-    this.lstcategories = res
-   
+  this.app.lstCart().subscribe(res=>{
+   this.lstcart = res
+   this.filterCartByUserName();
   })
+this.app.lstOders().subscribe(res=>{
+this.lstoders =res
+this.filterOdersbyuserName();
+});
+
+
+
   }
-  carts(){
-    location.assign("http://localhost:4200/Login")
+  filterOdersbyuserName() {
+    if (this.isLogin && this.isLogin.userName && this.lstoders) {
+      const filteredOders = this.lstoders.filter((product: any) => product.userName === this.isLogin.userName);
+      this.OdersCount = filteredOders.length;
+    }
   }
+  filterCartByUserName() {
+    if (this.isLogin && this.isLogin.userName && this.lstcart) {
+      const filteredCart = this.lstcart.filter((product: any) => product.userName === this.isLogin.userName);
+      this.CartCount = filteredCart.length;
+      
+    }
+  }
+
+  
  Logout(){
+  
   sessionStorage.clear();
-  location.reload()
+  
+  location.reload();
+  
  }
 }

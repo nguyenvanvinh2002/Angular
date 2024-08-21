@@ -51,11 +51,14 @@
     lstCart(){
       return this.http.get(`${APIURL}/Carts`)
     }
+    lstOders(){
+      return this.http.get(`${APIURL}/Oders`)
+    }
     lstCartbyUserName(userName:any){
       return this.http.get(`${APIURL}/Carts/${userName}`)
     }
-   deleteCart(idSp:number,Size:string){
-    return this.http.delete(`${APIURL}/Carts/${idSp}/${Size}`)
+   deleteCart(idSp:number,Size:string,userName:string){
+    return this.http.delete(`${APIURL}/Carts/${idSp}/${Size}/${userName}`)
    }
    Bycart(idSp:any){
     return this.http.post<any>(`${APIURL}/Carts/ByCart/`,idSp)
@@ -65,5 +68,11 @@
   }
   lstOderstbyUserName(userName:any){
     return this.http.get(`${APIURL}/Oders/${userName}`)
+  }
+  userbyname(userName:any){
+    return this.http.get(`${APIURL}/Users/${userName}`)
+  }
+  updateprofile(userName:any,user:any){
+    return this.http.put(`${APIURL}/Users/${userName}`,user)
   }
   }
