@@ -1,42 +1,38 @@
-
-
-<div  class="table-container">
+<div class="table-container">
     <div><h4>Đơn hàng của bạn</h4></div>
-    <table >
+    <table>
         <thead>
             <tr>
-                <th class="oder-table">STT</th>
-                <th class="oder-table">Tên Sản Phẩm</th>
-               
-                <th class="oder-table">Họ và Tên</th>
-                <th class="oder-table">Size</th>
-                <th class="oder-table">Số Lượng</th>
-                <th class="oder-table">Giá Sản Phẩm</th>
-                <th class="oder-table">Email</th>
-                <th class="oder-table">Số Điện Thoại</th>
-                <th class="oder-table">Địa Chỉ</th>
-                <th class="oder-table">Subtotal</th>
-                <th class="oder-table">Date Time</th>
-                <th class="oder-table">Status</th>
+                <th class="order-table">STT</th>
+                <th class="order-table">Tên Sản Phẩm</th>
+                <th class="order-table">Họ và Tên</th>
+                <th class="order-table">Size</th>
+                <th class="order-table">Số Lượng</th>
+                <th class="order-table">Giá Sản Phẩm</th>
+                <th class="order-table">Email</th>
+                <th class="order-table">Số Điện Thoại</th>
+                <th class="order-table">Địa Chỉ</th>
+                <th class="order-table">Subtotal</th>
+                <th class="order-table">Date Time</th>
+                <th class="order-table">Status</th>
             </tr>
         </thead>
         <tbody>
             <tr *ngFor="let lst of lstoders , let i = index">
-                <td class="oder-table">{{i + 1}}</td>
-                <td class="oder-table">{{lst.tenSp}}</td>
+                <td class="order-table">{{i + 1}}</td>
+                <td class="order-table product-name">{{lst.tenSp}}</td>
+                <td class="order-table">{{lst.hoVaTen}}</td>
+                <td class="order-table">{{lst.size}}</td>
+                <td class="order-table">{{lst.soLuong}}</td>
+                <td class="order-table">{{lst.giaSp | currency:'VND':'symbol':'1.0-0'}}</td>
+                <td class="order-table">{{lst.email}}</td>
+                <td class="order-table">+84{{lst.soDienThoai}}</td>
+                <td class="order-table">{{lst.diaChi}}</td>
+                <td class="order-table">{{lst.subtotal | currency:'VND':'symbol':'1.0-0'}}</td>
+                <td class="order-table">{{lst.dateTime | date:'dd-MM-yyyy' }}</td>
+                <td class="order-table">{{lst.status}}</td>
                
-                <td class="oder-table">{{lst.hoVaTen}}</td>
-                <td class="oder-table">{{lst.size}}</td>
-                <td class="oder-table">{{lst.soLuong}}</td>
-                <td class="oder-table">{{lst.giaSp| currency:'VND':'symbol':'1.0-0'}}</td>
-                <td class="oder-table">{{lst.email}}</td>
-                <td class="oder-table">+84{{lst.soDienThoai}}</td>
-                <td class="oder-table">{{lst.diaChi}}</td>
-                <td class="oder-table">{{lst.subtotal | currency:'VND':'symbol':'1.0-0'}}</td>
-                <td class="oder-table">{{lst.dateTime}}</td>
-                <td class="oder-table">{{lst.status }}</td>
             </tr>
-          
         </tbody>
     </table>
 </div>

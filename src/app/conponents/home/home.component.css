@@ -401,7 +401,8 @@ swiper-slide img {
 
 .text-price {
     margin: 0;
-    font-weight: bold;
+    font-size: 11px;
+    text-decoration: line-through;
 }
 
 .div-flash {
@@ -420,4 +421,17 @@ swiper-slide img {
 .link-prodcuts{
     text-decoration: none;
     color: black;
+}
+.phantrang{
+    justify-content: center;
+    width: 100%;
+    align-items: center;
+    margin-top: 40px;
+    display: flex;
+}
+.text-price-sale{
+    margin-left: 15px !important;
+    font-weight: bold;
+    margin: 0;
+    font-size: 11px;
 }

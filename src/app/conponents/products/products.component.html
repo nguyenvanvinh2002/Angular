@@ -13,7 +13,7 @@
     </div>
     <div class="col-lg-9 col-md-12">
       <h1 class="product-title">{{products.tenSp}}</h1>
-      <p class="product-price">{{products.giaSp | currency:'VND':'symbol':'1.0-0'}}</p>
+      <p class="product-price">{{products.giaSp-(products.giaSp*products.giamGia/100) | number:'1.0-0'}} đ</p>
 
       <div class="promotion-info mt-3">
         <div class="promotion-item">

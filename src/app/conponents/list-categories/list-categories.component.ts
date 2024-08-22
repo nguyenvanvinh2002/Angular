@@ -12,6 +12,7 @@ export class ListCategoriesComponent implements OnInit {
   danhMuc:any;
   danhMucs:any;
   lstproducts:any;
+  p:number=1
   URL:string='https://localhost:7025/img/'
 constructor(private activedRouter: ActivatedRoute,private app:AppService){}
   ngOnInit(): void {

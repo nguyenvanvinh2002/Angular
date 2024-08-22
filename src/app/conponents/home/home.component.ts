@@ -15,6 +15,8 @@ export class HomeComponent implements OnInit {
   lstcategories:any=[];
   products:any;
   id:any;
+  p:number=1;
+
   URL:string='https://localhost:7025/img/'
   public breakpoints: number = 5;
   public bannerpoint:number = 3;

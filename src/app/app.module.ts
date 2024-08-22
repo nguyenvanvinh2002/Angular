@@ -15,6 +15,7 @@ import { ShowtabproductsComponent } from './conponents/showtabproducts/showtabpr
 import { ProfileComponent } from './conponents/profile/profile.component';
 import { jWTInterceptor } from './service/jwt.interceptor';
 import { RegisterComponent } from './conponents/register/register.component';
+import {NgxPaginationModule} from 'ngx-pagination';
 
 
 
@@ -34,7 +35,6 @@ register();
     ShowtabproductsComponent,
     ProfileComponent,
     RegisterComponent,
- 
 
 
 
@@ -46,15 +46,12 @@ register();
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule,],
- 
-    
+    ReactiveFormsModule,
+    NgxPaginationModule
 
+  ],
   providers: [
     provideClientHydration(),
-
-
-    
     provideHttpClient(
       withInterceptors([jWTInterceptor])
     ),

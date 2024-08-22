@@ -3,7 +3,7 @@
         <i class="fa fa-home"></i>Trang chủ</a> >
      <span class="text-categories">{{danhMucs.danhMuc}}</span>
      <div class="product-container">
-        <div *ngFor="let lst of danhMuc" class="product-item">
+        <div *ngFor="let lst of danhMuc | paginate: { itemsPerPage: 20, currentPage: p }" class="product-item">
            <a  href="/Products/{{lst.id}}">
             <img src="{{URL}}{{lst.img}}" alt="Product Image" class="product-image">
             <h2 class="product-title">{{lst.tenSp}}</h2>
@@ -12,5 +12,6 @@
            </a>
           
         </div>
+        <pagination-controls class="phantrang" (pageChange)="p = $event"></pagination-controls>
     </div>
 </div>

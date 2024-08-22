@@ -87,3 +87,10 @@
 a{
     text-decoration: none;
 }
+.phantrang{
+    justify-content: center;
+    width: 100%;
+    align-items: center;
+    margin-top: 40px;
+    display: flex;
+}

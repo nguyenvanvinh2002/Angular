@@ -7,7 +7,7 @@ import { AppService } from '../../service/app.service';
   styleUrls: ['./showtabproducts.component.css']
 })
 export class ShowtabproductsComponent implements OnInit {
-
+  p:number=1
   dataproducts: any = []; 
   originalProducts: any = []; 
   URL: string = 'https://localhost:7025/img/';

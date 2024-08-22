@@ -36,15 +36,16 @@ this.filterOdersbyuserName();
   }
   filterOdersbyuserName() {
     if (this.isLogin && this.isLogin.userName && this.lstoders) {
-      const filteredOders = this.lstoders.filter((product: any) => product.userName === this.isLogin.userName);
+      var filteredOders = this.lstoders.filter((product: any) => product.userName === this.isLogin.userName);
       this.OdersCount = filteredOders.length;
+   
     }
   }
   filterCartByUserName() {
     if (this.isLogin && this.isLogin.userName && this.lstcart) {
       const filteredCart = this.lstcart.filter((product: any) => product.userName === this.isLogin.userName);
       this.CartCount = filteredCart.length;
-      
+     
     }
   }
 

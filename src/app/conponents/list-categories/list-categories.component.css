@@ -93,3 +93,10 @@ body {
 .text-categories{
     margin-left: 10px;font-size: 20px;
 }
+.phantrang{
+    justify-content: center;
+    width: 100%;
+    align-items: center;
+    margin-top: 40px;
+    display: flex;
+}
