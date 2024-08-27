@@ -10,7 +10,11 @@ import Swal from 'sweetalert2';
   styleUrl: './carts.component.css'
 })
 export class CartsComponent implements OnInit {
+
+  id:any
+  size:any
   isLogin:any;
+  Name:any
   userName:any
   lstcartsbyusername:any;
   textname:string= 'Chọn Tất Cả'
@@ -31,7 +35,14 @@ export class CartsComponent implements OnInit {
    
   }
   dele(id:number,size:string,userName:string){
-    this.app.deleteCart(id,size,this.userName).subscribe(res=>{
+    this. id = id
+    this.size = size
+    this.Name = userName
+    console.log(this.userName)
+   
+  }
+  delesucces(){
+    this.app.deleteCart(this.id,this.size,this.userName).subscribe(res=>{
       Swal.fire({
         title: "Thành công",
         text: "Xóa sản phẩm thành công",
@@ -43,7 +54,6 @@ export class CartsComponent implements OnInit {
       })
     
     });
-   
   }
   selectAll() {
     const allSelected = this.lstcartsbyusername.every((item:any) => item.selected);

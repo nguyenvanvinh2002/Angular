@@ -41,8 +41,7 @@
                     <td class="table-name">{{lst.size}}</td>
                     <td class="table-name">{{lst.soluong}}</td>
                     <td class="table-name">{{lst.status}}</td>
-                    <td class="table-name"><button (click)="dele(lst.idSp,lst.size,isLogin.userName)"
-                            class="btn btn-danger"><i class="fa-solid fa-trash"></i> Xóa</button></td>
+                    <td class="table-name"><button (click)="dele(lst.idSp,lst.size,isLogin.userName)" class="btn btn-danger btn-xoa"data-bs-toggle="modal" data-bs-target="#confirmDeleteModal"><i class="fa-solid fa-trash"></i> Xóa</button></td>
                     <td class="table-name"><a href="/Products/{{lst.idSp}}" class="btn btn-success"><i
                                 class="fa-solid fa-circle-info"></i> Detail</a></td>
                 </tr>
@@ -51,3 +50,22 @@
         </table>
     </div>
 </div>
+ <!-- popup xóa -->
+<div class="modal fade" id="confirmDeleteModal" tabindex="-1" aria-labelledby="confirmDeleteModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="confirmDeleteModalLabel">Xác nhận xóa</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          Bạn có chắc chắn muốn xóa không?
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Hủy</button>
+          <button type="button" class="btn btn-danger btn-xoa" (click)="delesucces()">Xóa</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  

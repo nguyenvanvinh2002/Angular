@@ -178,34 +178,18 @@ button {
   position: relative;
 }
 
-.count-cart {
+.count {
   position: absolute;
-  top: 0;
+  top: 10px;
   background-color: red;
-  padding: 0px 7px;
+  padding: 0px 2px;
   border-radius: 50%;
+  font-size: 11px;
   color: white;
+  width: 15px;
+    height: 15px;
+    text-align: center;
 }
-
-.count-oder {
-  position: absolute;
-  top: 0;
-  background-color: red;
-  padding: 0px 7px;
-  border-radius: 50%;
-  color: white;
-}
-
-.count-notify {
-  position: absolute;
-  top: 0;
-  background-color: red;
-  padding: 0px 7px;
-  border-radius: 50%;
-  color: white;
-}
-
-
 
 .li-notify {
 
@@ -279,4 +263,16 @@ button {
   padding: 0px 7px;
   border-radius: 50%;
   color: white;
+}
+.modal-title{
+  text-align: center;
+  width: 100%;
+}
+.text-notify{
+  text-align: center;
+ 
+}
+.div-notify{
+  font-size: 12px;
+  margin: 15px;
 }

@@ -3,23 +3,49 @@
     <form method="post" [formGroup]="RegisterF">
       <label aria-hidden="true">Register</label>
       <input class="input" name="userName" type="text" formControlName="userName" placeholder="Tài Khoản" required="">
+      <div *ngIf="f['userName'].touched && f['userName'].errors">
+        <span *ngIf="f['userName'].errors['minlength']" style="font-size: 10px;color: red;">Tên đăng nhập phải 5 ký tự trở lên</span>
+        <span *ngIf="f['userName'].errors['required']" style="font-size: 10px;color: red;">Tên đăng nhập không được để trống</span>
+      </div>
+
+       
+     
       <input class="input" type="password" name="passWord" formControlName="passWord" placeholder="Mật Khẩu"
         required="">
+        <div *ngIf="f['passWord'].touched && f['passWord'].errors">
+          <span *ngIf="f['passWord'].errors['minlength']" style="font-size: 10px;color: red;">Mật khẩu phải chứa ít nhất 5 ký tự </span>
+          <span *ngIf="f['passWord'].errors['required']" style="font-size: 10px;color: red;">Mật khẩu không được để trống</span>
+        </div>
       <input class="input" type="text" name="diaChi" formControlName="diaChi" placeholder="Địa Chỉ" required />
+      <div *ngIf="f['diaChi'].touched && f['diaChi'].errors">
+        <span *ngIf="f['diaChi'].errors['minlength']" style="font-size: 10px;color: red;">Địa chỉ phải chứa ít nhất 20 ký tự </span>
+        <span *ngIf="f['diaChi'].errors['required']" style="font-size: 10px;color: red;">Địa chỉ không được để trống</span>
+      </div>
       <input class="input" type="text" name="soDienThoai" formControlName="soDienThoai" placeholder="Số Điện Thoại"
         required />
-      <input class="input" type="text" name="email" formControlName="email" placeholder="Email" required />
+        <div *ngIf="f['soDienThoai'].touched && f['soDienThoai'].errors">
+          <span *ngIf="f['soDienThoai'].errors['maxlength']" style="font-size: 10px;color: red;">Số điện thoại tối đa là 10 số </span>
+          <span *ngIf="f['soDienThoai'].errors['required']" style="font-size: 10px;color: red;">Số điện thoại không được để trống</span>
+        </div>
+      <input class="input" type="email" name="email" formControlName="email" placeholder="Email" required />
+      <div *ngIf="f['email'].touched && f['email'].errors">
+        <span *ngIf="f['email'].errors['email']" style="font-size: 10px;color: red;">Email không đúng định dạng</span>
+        <span *ngIf="f['email'].errors['required']" style="font-size: 10px;color: red;">Email không được để trống</span>
+      </div>
       <input class="input" type="text" name="hoVaTen" formControlName="hoVaTen" placeholder="Họ Và Tên" required />
-
+      <div *ngIf="f['hoVaTen'].touched && f['hoVaTen'].errors">
+        <span *ngIf="f['hoVaTen'].errors['minlength']" style="font-size: 10px;color: red;">Họ và tên tối thiểu 10 ký tự</span>
+        <span *ngIf="f['hoVaTen'].errors['required']" style="font-size: 10px;color: red;">Email không được để trống</span>
+        <span *ngIf="f['hoVaTen'].errors['maxlength']" style="font-size: 10px;color: red;">Họ và tên tối đa 30 ký tự</span>
+      </div>
 
       <select class="select" name="gender" formControlName="gioiTinh" required>
         <option value="Nữ">Nữ</option>
         <option value="Nam">Nam</option>
 
       </select>
-      <div class="onRegister">
-        <button (click)="onRegister()" type="submit">Register</button>
-
+      <div   class="onRegister">
+        <button [disabled]="f['userName'].errors || f['passWord'].errors || f['diaChi'].errors || f['soDienThoai'].errors||f['email'].errors||f['hoVaTen'].errors" (click)="onRegister()" type="submit">Register</button>
       </div>
       <div class="onLogin">
         <a class="login" href="/Login">Login</a>

@@ -11,14 +11,17 @@ import { AppService } from '../../service/app.service';
 export class RegisterComponent implements OnInit {
   
   RegisterF:FormGroup = new FormGroup({
-    userName : new FormControl('',Validators.required),
-    passWord : new FormControl('',Validators.required),
-    diaChi : new FormControl('',Validators.required),
-    soDienThoai : new FormControl('',Validators.required),
-    email : new FormControl('',Validators.required),
-    hoVaTen:new FormControl('',Validators.required),
+    userName : new FormControl('',[Validators.required,Validators.minLength(5)]),
+    passWord : new FormControl('',[Validators.required,Validators.minLength(5)]),
+    diaChi : new FormControl('',[Validators.required,Validators.minLength(20)]),
+    soDienThoai : new FormControl('',[Validators.required,Validators.maxLength(10)]),
+    email : new FormControl('',[Validators.required,Validators.email]),
+    hoVaTen:new FormControl('',[Validators.required,Validators.minLength(10),Validators.maxLength(30)]),
     gioiTinh:new FormControl('Nam',Validators.required)
   });
+  get f(){
+    return this.RegisterF.controls
+   }
   constructor(private app:AppService){}
   ngOnInit(): void {
     

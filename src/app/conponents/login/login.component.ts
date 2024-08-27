@@ -17,7 +17,7 @@ export class LoginComponent {
   });
 
   constructor(private app:AppService){}
- 
+
   onLogin():void{
    this.app.Login(this.LoginF.value).subscribe(res => { 
   if (res.code == 400) {

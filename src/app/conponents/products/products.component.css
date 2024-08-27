@@ -221,3 +221,8 @@
 a:hover{
     text-decoration: none;
 }
+.mota{
+    white-space: pre-wrap; 
+    overflow: hidden; 
+    box-sizing: border-box;
+}

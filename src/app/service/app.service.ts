@@ -60,7 +60,7 @@
    deleteCart(idSp:number,Size:string,userName:string){
     return this.http.delete(`${APIURL}/Carts/${idSp}/${Size}/${userName}`)
    }
-   Bycart(idSp:any){
+   ByCarts(idSp:any){
     return this.http.post<any>(`${APIURL}/Carts/ByCart/`,idSp)
    }
    AddOders(Oders:any){
@@ -74,5 +74,17 @@
   }
   updateprofile(userName:any,user:any){
     return this.http.put(`${APIURL}/Users/${userName}`,user)
+  }
+  search(name:any){
+    return this.http.get(`${APIURL}/Products/Search?name=${name}`)
+  }
+  notifycation(content:any){
+    return this.http.post(`${APIURL}/Thongbao`,content)
+  }
+  Getnotify(){
+    return this.http.get(`${APIURL}/Thongbao`)
+  }
+  Removenotify(userName:any){
+    return this.http.delete(`${APIURL}/Thongbao/${userName}`)
   }
   }

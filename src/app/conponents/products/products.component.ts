@@ -33,7 +33,7 @@ export class ProductsComponent implements OnInit {
   sizeControl = new FormControl('S');
   soluongControl = new FormControl(1);
   profileuser:any=[];
- 
+  tenSp:any
   productForm: FormGroup = new FormGroup({
     size: this.sizeControl,
     soluong: this.soluongControl
@@ -169,21 +169,28 @@ export class ProductsComponent implements OnInit {
    
  }
 
-Muangay(){
-  this.app.Bycart({
-    idSp:this.id,
-    tenSp:this.products.tenSp,
-    giaSp:this.products.giaSp,
-    size:this.sizeControl.value,
-    soluong:this.soluongControl.value,
-    subtotal: (this.products.giaSp ?? 0) * (this.soluongControl.value ?? 0)
-  }).subscribe(res=>{
-    this.oders = res
-  })
-    
+Muangay(tenSp:any){
+  this.tenSp = tenSp
+if(!this.isLogin){
+  sessionStorage.setItem('currentPath', window.location.href);
+  location.assign("http://localhost:4200/Login")
+   return;
+}
+else{
+    this.app.ByCarts({
+      idSp:this.id,
+      tenSp:this.products.tenSp,
+      giaSp:this.products.giaSp,
+      size:this.sizeControl.value,
+      soluong:this.soluongControl.value,
+      subtotal: (this.products.giaSp ?? 0) * (this.soluongControl.value ?? 0)
+    }).subscribe(res=>{
+      this.oders = res
+    })
+}  
 
 }
-ByCart(){
+ByOder(){
   this.OdersF.patchValue({
     subtotal: (this.products.giaSp ?? 0) * (this.soluongControl.value ?? 0)
   });
@@ -199,16 +206,24 @@ ByCart(){
         soLuong:this.soluongControl.value,
         size:this.sizeControl.value,
         subtotal: (this.products.giaSp ?? 0) * (this.soluongControl.value ?? 0) 
-        
  }).subscribe(res=>{
   Swal.fire({
     title: "Thành Công",
     text: "Tiếp tục mua sắm nhé!",
     icon: "success"
   });
-  
+  setTimeout(() => {
+    location.reload()
+  }, 1000);
  })
-
+this.app.notifycation({
+  idSp: this.id,
+  userName:this.isLogin.userName,
+  tenSp:this.products.tenSp,
+  title:`Đặt hàng sản phẩm ${this.tenSp} thành công`,
+  size:this.sizeControl.value,
+}).subscribe(res=>{
+})
  
 
 

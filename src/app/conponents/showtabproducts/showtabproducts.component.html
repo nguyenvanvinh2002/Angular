@@ -1,15 +1,28 @@
 <!-- products -->
-
+<div class="container">
+    <div class="fillter">
+        <div><button (click)="selectall()" class="btn product-button">Tất cả</button></div>
+        <div><button  (click)="giamgiasoc()" class="btn product-button">Giảm giá sốc</button></div>
+        <div><button (click)="do100k()" class="btn product-button">Dưới 100k</button></div>
+        <div class="div-search">
+            <form class="form-search" >
+            <input (change)="filter($event)" class="search" type="text" name="" id="" placeholder="tìm kiếm...."><i class="fa-solid fa-magnifying-glass"></i>
+        </form></div>
+        </div>
+</div>
 <div class="product-container">
-    <div *ngFor="let lst of dataproducts | paginate: { itemsPerPage: 20, currentPage: p }" class="product-item">
+   
+    <div class="error" *ngIf="dataproducts.length === 0 ">Không có sản phẩm nào trùng khớp</div>
+    <div *ngFor="let lst of dataproducts | paginate: { itemsPerPage: 20, currentPage: g }" class="product-item">
        <a href="/Products/{{lst.id}}">
         <img src="{{URL}}{{lst.img}}" alt="Product Image" class="product-image">
+        <span class="sale">{{lst.giamGia}} %</span>
         <h2 class="product-title">{{lst.tenSp}}</h2>
         <p class="product-price">{{lst.giaSp | number:'1.0-0'}}đ</p>
         <a   class="product-button">Xem chi tiết</a>
        </a>
       
     </div>
-    <pagination-controls class="phantrang" (pageChange)="p = $event"></pagination-controls>
+    <pagination-controls class="phantrang" (pageChange)="g = $event"></pagination-controls>
 </div>
  <!--  -->

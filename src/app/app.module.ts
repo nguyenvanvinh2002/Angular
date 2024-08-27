@@ -16,6 +16,7 @@ import { ProfileComponent } from './conponents/profile/profile.component';
 import { jWTInterceptor } from './service/jwt.interceptor';
 import { RegisterComponent } from './conponents/register/register.component';
 import {NgxPaginationModule} from 'ngx-pagination';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
 
 
@@ -36,10 +37,7 @@ register();
     ProfileComponent,
     RegisterComponent,
 
-
-
-   
-
+    
   ],
   imports: [
     BrowserModule,
@@ -47,7 +45,8 @@ register();
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
-    NgxPaginationModule
+    NgxPaginationModule,
+    
 
   ],
   providers: [
@@ -56,6 +55,7 @@ register();
       withInterceptors([jWTInterceptor])
     ),
   ],
+
   bootstrap: [AppComponent],
   schemas:[CUSTOM_ELEMENTS_SCHEMA]
 })

@@ -3,6 +3,7 @@
     <form method="post" [formGroup]="LoginF">
       <label aria-hidden="true">Login</label>
       <input class="username"  name="userName" type="text" formControlName="userName" placeholder="UserName" required="">
+     
       <input class="password" type="password" name="passWord" formControlName="passWord" placeholder="PassWord" required="">
       <div class="btn_login">
         <button (click)="onLogin()" type="submit">Login</button>

@@ -16,6 +16,7 @@ export class HomeComponent implements OnInit {
   products:any;
   id:any;
   p:number=1;
+  lstdanhgia:any
 
   URL:string='https://localhost:7025/img/'
   public breakpoints: number = 5;
@@ -24,7 +25,9 @@ export class HomeComponent implements OnInit {
 
   constructor(private app:AppService,private activeRouter:ActivatedRoute){}
   ngOnInit(): void {
-   
+      this.app.lstDanhGia().subscribe(res=>{
+        this.lstdanhgia = res
+      })
       this.app.lstproducts().subscribe(res=>{
         this.dataproducts = res
       })

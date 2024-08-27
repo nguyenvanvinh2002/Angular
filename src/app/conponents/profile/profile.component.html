@@ -13,11 +13,11 @@
             <li>
                 <div class="div-hovaten">
                     <label class="lable-hovaten" for="">Họ Và Tên: </label>
-                    <form [formGroup]="hoVaTenF" action="" method="post">
-                        <input formControlName="hovaTen" class="hovaten" type="text" name="" id=""
-                            value="{{profileusername.hoVaTen}}" readonly>
+                    <form [formGroup]="hoVaTenF">
+                        <input formControlName="hovaTen" class="hovaten" type="text" name="" id=""value="{{profileusername.hoVaTen}}" readonly>
+                       
                     </form>
-                    <button (click)="hovaten()" class="btn-hovaten"><i class="fa-solid fa-check"></i></button>
+                    <button  (click)="hovaten()" class="btn-hovaten"><i class="fa-solid fa-check"></i></button>
                     <button class="btn-dong"><i class="fa-solid fa-xmark"></i></button>
                 </div>
                 <button class="edit-btn edit-hovaten">

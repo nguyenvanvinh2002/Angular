@@ -8,13 +8,28 @@
                 <li><i class="fa-solid fa-location-dot"></i><a href="">Hà Nội</a></li>
                 <li class="li-search"><input type="text" placeholder="Bạn tìm gì...."><i
                         class="fa-solid fa-magnifying-glass"></i></li>
-                <li class="cart"><i class="fa-solid fa-cart-shopping"></i><a class="link-cart"
-                        href="/Carts/{{isLogin.userName}}">Giỏ Hàng</a><span class="count-cart">{{CartCount}}</span>
+                <li *ngIf="isLogin.userName" class="cart"><i class="fa-solid fa-cart-shopping"></i><a class="link-cart"
+                        href="/Carts/{{isLogin.userName}}">Giỏ Hàng</a><span class="count">{{CartCount > 9 ? '9+' :
+                        CartCount}}</span>
                 </li>
-                <li class="li-history"><i class="fa-solid fa-file-waveform"></i><a
-                        href="/oders/{{isLogin.userName}}">Lịch sử đơn hàng</a></li>
-                <li class="li-notify"><i class="fa-solid fa-bell"></i><a class="link-notify" href="#">Thông báo</a><span
-                        class="count-notify"></span></li>
+                <li *ngIf="!isLogin.userName" class="cart"><i class="fa-solid fa-cart-shopping"></i><a (click)="alert()"
+                        class="link-cart" href="#">Giỏ Hàng</a><span class="count-cart"></span>
+                </li>
+
+                <li *ngIf="isLogin" class="li-history"><i class="fa-solid fa-file-waveform"></i><a
+                        href="/oders/{{isLogin.userName}}">Lịch sử đơn hàng</a><span class="count">{{ OdersCount > 9 ?
+                        '9+' : OdersCount }}</span></li>
+                <li *ngIf="!isLogin.userName" class="li-history"><i class="fa-solid fa-file-waveform"></i><a
+                        (click)="alert()" href="#">Lịch sử đơn hàng</a></li>
+                <li *ngIf="isLogin" class="li-notify">
+                    <i class="fa-solid fa-bell"></i>
+                    <a data-bs-toggle="modal" data-bs-target="#notifyModel" class="link-notify" href="#">Thông báo</a>
+                    <span class="count">{{NotifyCount > 9 ? '9+' : NotifyCount}}</span>
+                </li>
+
+                <li *ngIf="!isLogin.userName" class="li-notify"><i class="fa-solid fa-bell"></i><a (click)="alert()"
+                        class="link-notify" href="#">Thông báo</a><span class="count"></span></li>
+
                 <li *ngIf="!isLogin" class="li-not-login"><i class="fa-solid fa-user"></i><a href="/Login">Tài
                         Khoản</a><i class="fa-solid fa-sort-down"></i></li>
                 <li *ngIf="isLogin" class="li-user">
@@ -113,3 +128,28 @@
         </div>
     </div>
 </footer>
+
+
+<!-- Popup thông báo (Modal) -->
+<div class="modal fade" id="notifyModel" tabindex="-1" aria-labelledby="notifyModelLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="notifyModelLabel">Thông báo</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="div-notify" *ngFor="let lst of lstnotify">
+                    <i class="fa-solid fa-bell"></i> <span>{{lst.title}}</span>
+                    <hr>
+                </div>
+                <div *ngIf="lstnotify.length === 0" class="text-notify"><span>Chưa có thông báo</span></div>
+            </div>
+            <div class="modal-footer">
+                <button (click)="delenotify(isLogin.userName)" type="button" class="btn btn-primary">Xóa tất cả thông
+                    báo</button>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>
+            </div>
+        </div>
+    </div>
+</div>

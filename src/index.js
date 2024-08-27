@@ -224,3 +224,11 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     })
 });
+
+document.addEventListener('DOMContentLoaded', function() {
+    var modalElement = document.getElementById('confirmDeleteModal');
+    var modal = new bootstrap.Modal(modalElement);
+    document.querySelector('.btn-xoa').addEventListener('click', function() {
+      modal.hide();
+    });
+  });
