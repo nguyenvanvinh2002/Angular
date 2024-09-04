@@ -52,9 +52,10 @@
     object-fit: cover;
     border-radius: 5px;
     margin-bottom: 10px;
-  
+
 }
-.sale{
+
+.sale {
     position: absolute;
     left: 132px;
     background-color: red;
@@ -94,33 +95,40 @@
 .product-button:hover {
     background-color: #d81b60;
 }
-a{
+
+a {
     text-decoration: none;
 }
-.phantrang{
+
+.phantrang {
     justify-content: center;
     width: 100%;
     align-items: center;
     margin-top: 40px;
     display: flex;
 }
-.fillter{
+
+.fillter {
     display: flex;
     align-items: center;
     position: relative;
 }
-.fillter div{
+
+.fillter div {
     margin: 10px;
 }
-.form-search{
+
+.form-search {
     position: relative;
-    
+
 }
-.div-search{
+
+.div-search {
     position: absolute;
     right: 0;
 }
-.fa-magnifying-glass{
+
+.fa-magnifying-glass {
     align-items: center;
     position: absolute;
     top: auto;
@@ -129,9 +137,22 @@ a{
     cursor: pointer;
 
 }
-.error{
+
+.error {
     display: flex;
     align-items: center;
     justify-content: center;
     width: 100%;
+}
+
+.div-load {
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.icon-load {
+    width: 50px;
 }

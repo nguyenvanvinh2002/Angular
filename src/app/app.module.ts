@@ -17,10 +17,6 @@ import { jWTInterceptor } from './service/jwt.interceptor';
 import { RegisterComponent } from './conponents/register/register.component';
 import {NgxPaginationModule} from 'ngx-pagination';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
-
-
-
-
 register();
 
 
@@ -51,9 +47,9 @@ register();
   ],
   providers: [
     provideClientHydration(),
-    provideHttpClient(
-      withInterceptors([jWTInterceptor])
-    ),
+    // provideHttpClient(
+    //   withInterceptors([jWTInterceptor])
+    // ),
   ],
 
   bootstrap: [AppComponent],

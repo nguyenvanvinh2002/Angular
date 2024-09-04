@@ -11,99 +11,103 @@ import Swal from 'sweetalert2';
 })
 export class CartsComponent implements OnInit {
 
-  id:any
-  size:any
-  isLogin:any;
-  Name:any
-  userName:any
-  lstcartsbyusername:any;
-  textname:string= 'Chọn Tất Cả'
-  textoder:string="Đặt Hàng"
-  textdele:string='Xóa Tất Cả'
+  id: any
+  size: any
+  isLogin: any;
+  loadding: any
+  Name: any
+  userName: any
+  lstcartsbyusername: any;
+  textname: string = 'Chọn Tất Cả'
+  textoder: string = "Đặt Hàng"
+  textdele: string = 'Xóa Tất Cả'
 
-   URL:string='https://localhost:7025/img/'
-  constructor( private app:AppService,private activeRouter:ActivatedRoute){}
+  URL: string = 'https://localhost:7025/img/'
+  constructor(private app: AppService, private activeRouter: ActivatedRoute) { }
   ngOnInit(): void {
+    this.loadding = true
     this.isLogin = this.app.CheckLogin
-    this.activeRouter.paramMap.subscribe(query=>{
-    this.userName= query.get('userName')
-    this.app.lstCartbyUserName(this.userName).subscribe(res=>{
-    this.lstcartsbyusername = res
- 
-  })
-   })
-   
+    this.activeRouter.paramMap.subscribe(query => {
+      this.userName = query.get('userName')
+      this.app.lstCartbyUserName(this.userName).subscribe(res => {
+        setTimeout(() => {
+          this.lstcartsbyusername = res
+          this.loadding = false
+        }, 1000);
+      })
+    })
+
   }
-  dele(id:number,size:string,userName:string){
-    this. id = id
+  dele(id: number, size: string, userName: string) {
+    this.id = id
     this.size = size
     this.Name = userName
     console.log(this.userName)
-   
+
   }
-  delesucces(){
-    this.app.deleteCart(this.id,this.size,this.userName).subscribe(res=>{
+  delesucces() {
+    this.app.deleteCart(this.id, this.size, this.userName).subscribe(res => {
       Swal.fire({
         title: "Thành công",
         text: "Xóa sản phẩm thành công",
         icon: "success"
-      }).then(()=>{
-        this.app.lstCartbyUserName(this.userName).subscribe(res=>{
+      }).then(() => {
+        this.app.lstCartbyUserName(this.userName).subscribe(res => {
           this.lstcartsbyusername = res
         })
       })
-    
+
     });
   }
   selectAll() {
-    const allSelected = this.lstcartsbyusername.every((item:any) => item.selected);
-    if(allSelected){
-      this.lstcartsbyusername.forEach((lst:any) => lst.selected = false);
-     
-      this.textname =' Chọn Tất Cả'
-      this.textoder= 'Đặt Hàng'
+    const allSelected = this.lstcartsbyusername.every((item: any) => item.selected);
+    if (allSelected) {
+      this.lstcartsbyusername.forEach((lst: any) => lst.selected = false);
+
+      this.textname = ' Chọn Tất Cả'
+      this.textoder = 'Đặt Hàng'
     }
-    else{
-      this.lstcartsbyusername.forEach((lst:any) => lst.selected = true );
-        this.textname ='Bỏ Chọn Tất Cả'
-        this.textoder = 'Đặt Hàng'
-        
+    else {
+      this.lstcartsbyusername.forEach((lst: any) => lst.selected = true);
+      this.textname = 'Bỏ Chọn Tất Cả'
+      this.textoder = 'Đặt Hàng'
+
     }
   }
-  odercount(){
-    const getoder = this.lstcartsbyusername.filter((lst:any)=>lst.selected)
-    if(getoder.length == 0){
+  odercount() {
+    const getoder = this.lstcartsbyusername.filter((lst: any) => lst.selected)
+    if (getoder.length == 0) {
       Swal.fire({
         title: "Lỗi",
         text: "Chọn sản phẩm cần oder",
         icon: "error"
       })
-     }
-     else{
+    }
+    else {
       Swal.fire({
         title: ":)",
         text: "Chưa có chức năng này",
         icon: "warning"
       })
-     }
+    }
   }
-  Remove(){
-    const getdele = this.lstcartsbyusername.filter((lst:any)=>lst.selected)
-   if(getdele.length == 0){
-    Swal.fire({
-      title: "Lỗi",
-      text: "Chọn sản phẩm cần xóa",
-      icon: "error"
-    })
-   }
-   else{
-    Swal.fire({
-      title: ":)",
-      text: "Chưa có chức năng này",
-      icon: "warning"
-    })
-   }
-  
+  Remove() {
+    const getdele = this.lstcartsbyusername.filter((lst: any) => lst.selected)
+    if (getdele.length == 0) {
+      Swal.fire({
+        title: "Lỗi",
+        text: "Chọn sản phẩm cần xóa",
+        icon: "error"
+      })
+    }
+    else {
+      Swal.fire({
+        title: ":)",
+        text: "Chưa có chức năng này",
+        icon: "warning"
+      })
+    }
+
   }
- 
+
 }

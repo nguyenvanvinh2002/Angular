@@ -3,16 +3,19 @@
     <a href="/" class="" style="text-decoration: none;color: black;font-size: 20px;">
         <i class="fa fa-home"></i>Trang chủ</a> >
      <span class="text-categories">{{danhMucs.danhMuc}}</span>
-     <div class="product-container">
-        <div *ngFor="let lst of danhMuc | paginate: { itemsPerPage: 20, currentPage: p }" class="product-item">
-           <a  href="/Products/{{lst.id}}">
-            <img src="{{URL}}{{lst.img}}" alt="Product Image" class="product-image">
-            <h2 class="product-title">{{lst.tenSp}}</h2>
-            <p class="product-price price">{{lst.giaSp | number:'1.0-0'}}đ</p>
-            <a class="product-button">Xem chi tiết</a>
-           </a>
-          
-        </div>
-        <pagination-controls class="phantrang" (pageChange)="p = $event"></pagination-controls>
     
+
+       <div  class="product-container" >
+         <div *ngFor="let lst of danhMuc | paginate: { itemsPerPage: 20, currentPage: p }" class="product-item">
+            <a   href="/Products/{{lst.id}}">
+             <img src="{{URL}}{{lst.img}}" alt="Product Image" class="product-image">
+             <h2 class="product-title">{{lst.tenSp}}</h2>
+             <p class="product-price price">{{lst.giaSp | number:'1.0-0'}}đ</p>
+             <a class="product-button">Xem chi tiết</a>
+            </a>
+         </div>
+
+        <div *ngIf="loadding" class="div-load">
+         <img class="icon-load" src="loadding.gif" alt=""></div>
+        <pagination-controls class="phantrang" (pageChange)="p = $event"></pagination-controls>
 </div>

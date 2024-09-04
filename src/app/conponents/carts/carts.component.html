@@ -1,71 +1,76 @@
 <div class=" mt-5">
-    <div class="table-container">
-        <div class="div-cart">
-            <h2>Giỏ Hàng Của Bạn</h2>
-            <div>
+  <div class="table-container">
+    <div class="div-cart">
+      <h2>Giỏ Hàng Của Bạn</h2>
+      <div>
 
-                <button (click)="selectAll()" class="btn btn-primary btn-click"><i class="fa-solid fa-check-double"></i>
-                    {{textname}}</button>
+        <button (click)="selectAll()" class="btn btn-primary btn-click"><i class="fa-solid fa-check-double"></i>
+          {{textname}}</button>
 
-                <button (click)="odercount()" class="btn btn-warning btn-click"><i
-                        class="fa-solid fa-shopping-cart"></i> {{textoder}}</button>
-                <button (click)="Remove()" class="btn btn-remove "><i class="fa-solid fa-trash"></i>
-                    {{textdele}}</button>
-            </div>
-        </div>
-
-        <table class="product-table">
-            <thead>
-                <tr>
-                    <th class="table-name">Options</th>
-                    <th class="table-name">STT</th>
-                    <th class="table-name">Hình Ảnh</th>
-                    <th class="table-name">Tên sản phẩm</th>
-                    <th class="table-name">Danh mục</th>
-                    <th class="table-name">Giá</th>
-                    <th class="table-name">Kích thước</th>
-                    <th class="table-name">Số lượng</th>
-                    <th class="table-name">Trạng Thái</th>
-                    <th class="table-name"></th>
-                    <th class="table-name"></th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr *ngFor="let lst of lstcartsbyusername,let i = index">
-                    <td class="table-name"><input type="checkbox" name="" id="" [(ngModel)]="lst.selected"></td>
-                    <td class="table-name">{{i + 1}}</td>
-                    <td class="table-name"><img class="img-table" src="{{URL}}{{lst.img}}" alt=""></td>
-                    <td class="table-nameproducts">{{lst.tenSp}}</td>
-                    <td class="table-categories">{{lst.danhMuc}}</td>
-                    <td class="table-price">{{lst.giaSp | currency:'VND':'symbol':'1.0-0'}}</td>
-                    <td class="table-name">{{lst.size}}</td>
-                    <td class="table-name">{{lst.soluong}}</td>
-                    <td class="table-name">{{lst.status}}</td>
-                    <td class="table-name"><button (click)="dele(lst.idSp,lst.size,isLogin.userName)" class="btn btn-danger btn-xoa"data-bs-toggle="modal" data-bs-target="#confirmDeleteModal"><i class="fa-solid fa-trash"></i> Xóa</button></td>
-                    <td class="table-name"><a href="/Products/{{lst.idSp}}" class="btn btn-success"><i
-                                class="fa-solid fa-circle-info"></i> Detail</a></td>
-                </tr>
-
-            </tbody>
-        </table>
+        <button (click)="odercount()" class="btn btn-warning btn-click"><i class="fa-solid fa-shopping-cart"></i>
+          {{textoder}}</button>
+        <button (click)="Remove()" class="btn btn-remove "><i class="fa-solid fa-trash"></i>
+          {{textdele}}</button>
+      </div>
     </div>
+
+    <table class="product-table">
+      <thead>
+        <tr>
+          <th class="table-name">Options</th>
+          <th class="table-name">STT</th>
+          <th class="table-name">Hình Ảnh</th>
+          <th class="table-name">Tên sản phẩm</th>
+          <th class="table-name">Danh mục</th>
+          <th class="table-name">Giá</th>
+          <th class="table-name">Kích thước</th>
+          <th class="table-name">Số lượng</th>
+          <th class="table-name">Trạng Thái</th>
+          <th class="table-name"></th>
+          <th class="table-name"></th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr *ngFor="let lst of lstcartsbyusername,let i = index">
+          <td class="table-name"><input type="checkbox" name="" id="" [(ngModel)]="lst.selected"></td>
+          <td class="table-name">{{i + 1}}</td>
+          <td class="table-name"><img class="img-table" src="{{URL}}{{lst.img}}" alt=""></td>
+          <td class="table-nameproducts">{{lst.tenSp}}</td>
+          <td class="table-categories">{{lst.danhMuc}}</td>
+          <td class="table-price">{{lst.giaSp | currency:'VND':'symbol':'1.0-0'}}</td>
+          <td class="table-name">{{lst.size}}</td>
+          <td class="table-name">{{lst.soluong}}</td>
+          <td class="table-name">{{lst.status}}</td>
+          <td class="table-name"><button (click)="dele(lst.idSp,lst.size,isLogin.userName)"
+              class="btn btn-danger btn-xoa" data-bs-toggle="modal" data-bs-target="#confirmDeleteModal"><i
+                class="fa-solid fa-trash"></i> Xóa</button></td>
+          <td class="table-name"><a href="/Products/{{lst.idSp}}" class="btn btn-success"><i
+                class="fa-solid fa-circle-info"></i> Detail</a></td>
+        </tr>
+      </tbody>
+    </table>
+    <div *ngIf="loadding" class="div-load">
+      <img class="icon-load" src="loadding.gif" alt="">
+    </div>
+  </div>
 </div>
- <!-- popup xóa -->
-<div class="modal fade" id="confirmDeleteModal" tabindex="-1" aria-labelledby="confirmDeleteModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="confirmDeleteModalLabel">Xác nhận xóa</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-          Bạn có chắc chắn muốn xóa không?
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Hủy</button>
-          <button type="button" class="btn btn-danger btn-xoa" (click)="delesucces()">Xóa</button>
-        </div>
+<!-- popup xóa -->
+<div class="modal fade" id="confirmDeleteModal" tabindex="-1" aria-labelledby="confirmDeleteModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="confirmDeleteModalLabel">Xác nhận xóa</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        Bạn có chắc chắn muốn xóa không?
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Hủy</button>
+        <button type="button" class="btn btn-danger btn-xoa" (click)="delesucces()">Xóa</button>
       </div>
     </div>
   </div>
-  
+</div>

@@ -19,7 +19,7 @@ export class LoginComponent {
   constructor(private app:AppService){}
 
   onLogin():void{
-   this.app.Login(this.LoginF.value).subscribe(res => { 
+   this.app.Login(this.LoginF.value).subscribe((res:any) => { 
   if (res.code == 400) {
     Swal.fire({
       title: "Cảnh báo",
@@ -37,7 +37,6 @@ export class LoginComponent {
   } else {
     let jsondata = JSON.stringify(res);
     sessionStorage.setItem('Login',jsondata);
- 
     sessionStorage.setItem('token',res.token);
     const returnPath = sessionStorage.getItem('currentPath')
     if(returnPath){

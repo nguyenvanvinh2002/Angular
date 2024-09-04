@@ -20,6 +20,7 @@ export class ProductsComponent implements OnInit {
  
   URL: string = 'https://localhost:7025/img/';
   id: any;
+  key:string=''
   products: any;
   Similarproducts: any;
   lstsimi: any = [];
@@ -62,8 +63,6 @@ export class ProductsComponent implements OnInit {
   ngOnInit(): void {
   
    this.profileuser = JSON.parse(sessionStorage.getItem('Login') || '{} ')
-
-
     this.activeRouter.paramMap.subscribe(query => {
       this.id = query.get("id");
       this.loadData();
@@ -87,8 +86,8 @@ export class ProductsComponent implements OnInit {
     forkJoin({
      
       product: this.app.lstproductsbyId(this.id),
-      similarProducts: this.app.lstproducts(),
-      lstproducts:this.app.lstproducts(),
+      similarProducts: this.app.lstproducts(this.key),
+      lstproducts:this.app.lstproducts(this.key),
       danhGia: this.app.lstDanhGia(),
 
     }).subscribe(responses => {

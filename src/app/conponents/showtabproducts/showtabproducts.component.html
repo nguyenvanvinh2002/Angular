@@ -10,19 +10,21 @@
         </form></div>
         </div>
 </div>
-<div class="product-container">
-   
+<div>
+  <div *ngIf="!loadding" class="product-container">
     <div class="error" *ngIf="dataproducts.length === 0 ">Không có sản phẩm nào trùng khớp</div>
     <div *ngFor="let lst of dataproducts | paginate: { itemsPerPage: 20, currentPage: g }" class="product-item">
-       <a href="/Products/{{lst.id}}">
-        <img src="{{URL}}{{lst.img}}" alt="Product Image" class="product-image">
-        <span class="sale">{{lst.giamGia}} %</span>
-        <h2 class="product-title">{{lst.tenSp}}</h2>
-        <p class="product-price">{{lst.giaSp | number:'1.0-0'}}đ</p>
-        <a   class="product-button">Xem chi tiết</a>
-       </a>
-      
-    </div>
+        <a href="/Products/{{lst.id}}">
+         <img src="{{URL}}{{lst.img}}" alt="Product Image" class="product-image">
+         <span class="sale">{{lst.giamGia}} %</span>
+         <h2 class="product-title">{{lst.tenSp}}</h2>
+         <p class="product-price">{{lst.giaSp | number:'1.0-0'}}đ</p>
+         <a   class="product-button">Xem chi tiết</a>
+        </a>
+   </div>
+  </div>
+   <div *ngIf="loadding" class="div-load">
+    <img class="icon-load" src="loadding.gif" alt=""></div>
     <pagination-controls class="phantrang" (pageChange)="g = $event"></pagination-controls>
 </div>
  <!--  -->

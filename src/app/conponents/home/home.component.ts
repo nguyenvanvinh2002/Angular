@@ -17,6 +17,7 @@ export class HomeComponent implements OnInit {
   id:any;
   p:number=1;
   lstdanhgia:any
+  key:string=''
 
   URL:string='https://localhost:7025/img/'
   public breakpoints: number = 5;
@@ -28,7 +29,7 @@ export class HomeComponent implements OnInit {
       this.app.lstDanhGia().subscribe(res=>{
         this.lstdanhgia = res
       })
-      this.app.lstproducts().subscribe(res=>{
+      this.app.lstproducts(this.key).subscribe(res=>{
         this.dataproducts = res
       })
      
@@ -36,13 +37,12 @@ export class HomeComponent implements OnInit {
       this.lstcategories = res
      
     })
-    this.activeRouter.paramMap.subscribe(query=>{
-      this.id=query.get("id");
-    this.app.lstproductsbyId(this.id).subscribe(res=>{
-      this.products = res
-    });
-    
-  })
+  //   this.activeRouter.paramMap.subscribe(query=>{
+  //     this.id=query.get("id");
+  //   this.app.lstproductsbyId(this.id).subscribe(res=>{
+  //     this.products = res
+  //   });
+  // })
   if (window.innerWidth < 960) {
     this.breakpoints = 3;
     this.bannerpoint = 2

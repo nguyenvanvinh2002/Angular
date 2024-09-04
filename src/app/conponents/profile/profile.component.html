@@ -6,7 +6,7 @@
 
         </div>
 
-        <h1 class="profile-name">{{profileusername.userName}}</h1>
+        <h1  class="profile-name">{{profileusername.newUser?.userName}}</h1>
     </div>
     <div class="profile-details">
         <ul>
@@ -14,8 +14,7 @@
                 <div class="div-hovaten">
                     <label class="lable-hovaten" for="">Họ Và Tên: </label>
                     <form [formGroup]="hoVaTenF">
-                        <input formControlName="hovaTen" class="hovaten" type="text" name="" id=""value="{{profileusername.hoVaTen}}" readonly>
-                       
+                        <input formControlName="hoVaTen" class="hovaten" type="text" name="" id=""value="{{profileusername.newUser?.hoVaTen}}" readonly>
                     </form>
                     <button  (click)="hovaten()" class="btn-hovaten"><i class="fa-solid fa-check"></i></button>
                     <button class="btn-dong"><i class="fa-solid fa-xmark"></i></button>
@@ -25,7 +24,7 @@
                 </button>
             </li>
             <li>
-                <strong>Giới Tính: </strong>{{profileusername.gioiTinh}}
+                <strong>Giới Tính: </strong>{{profileusername.newUser?.gioiTinh}}
 
             </li>
             <li>
@@ -33,7 +32,7 @@
                     <label class="label-phone" for="">Điện Thoại: </label>
                     <form action="" [formGroup]="sodienthoaiF">
                         <input formControlName="soDienThoai" class="sodienthoai" type="text" name="" id=""
-                            value="{{profileusername.soDienThoai}}" readonly>
+                            value="{{profileusername.newUser?.soDienThoai}}" readonly>
                     </form>
                     <button (click)="sodienthoai()" class="btn-sodienthoai"><i class="fa-solid fa-check"></i></button>
                     <button class="btn-dong1"><i class="fa-solid fa-xmark"></i></button>
@@ -47,7 +46,7 @@
                     <label class="label-email" for="">Email: </label>
                     <form action="" [formGroup]="emailF">
                         <input formControlName="email" class="email" type="text" name="" id=""
-                            value="{{profileusername.email}}" readonly>
+                            value="{{profileusername.newUser?.email}}" readonly>
                     </form>
                     <button (click)="email()" class="btn-email"><i class="fa-solid fa-check"></i></button>
                     <button class="btn-dong2"><i class="fa-solid fa-xmark"></i></button>
@@ -61,7 +60,7 @@
                     <label class="label-adress" for="">Địa Chỉ: </label>
                     <form action="" [formGroup]="diaChiF">
                         <input formControlName="diaChi" class="diachi" type="text" name="" id=""
-                            value="{{profileusername.diaChi}}" readonly>
+                            value="{{profileusername.newUser?.diaChi}}" readonly>
                     </form>
                     <button (click)="diaChi()" class="btn-diachi"><i class="fa-solid fa-check"></i></button>
                     <button class="btn-dong3"><i class="fa-solid fa-xmark"></i></button>

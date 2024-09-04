@@ -73,3 +73,14 @@ tbody tr:hover td {
 *{
     font-size: 11px;
 }
+.div-load {
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.icon-load {
+    width: 50px;
+}
